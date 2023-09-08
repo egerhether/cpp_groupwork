@@ -1,0 +1,3 @@
+g++ -o hello hello.cc // compile "hello.c" and save into "hello" executable
+g++ -c hello.cc // create the object file "hello.o"
+./hello // run the executable "hello"

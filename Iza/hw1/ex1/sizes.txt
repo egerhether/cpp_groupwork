@@ -1,0 +1,4 @@
+source file: 130 bytes
+object file: 1744 bytes
+executable file: 14392 bytes
+iostream file: 3024 bytes
