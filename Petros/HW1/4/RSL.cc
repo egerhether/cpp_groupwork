@@ -9,11 +9,12 @@ R"delimiter(
 ^\s+Quality=(\d+)
 ^\s+E?SSID:"([[:print:]]+)"
 ^\s+ssid="([[:print:]]+)"
+
 )delimiter";
 };	
 	
 int main()
 {
-	std::cout << myString << '\n';
+	std::cout << myString;
 		     		     
 }
