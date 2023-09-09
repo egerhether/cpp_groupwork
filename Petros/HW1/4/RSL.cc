@@ -1,34 +1,19 @@
 #include<iostream>
 
 namespace {				//anonymous namespace
-char const encryptionKey[]=		//Defining the RSL
-R"(
+char const myString[]=			//Defining the RSL
+					//We use delimiter as a marker to
+					//deal with "( and )" in the str
+R"delimiter(				
 ^\s+Encryption key:(\w+)
-)";
-
-char const quality[]=
-R"(
 ^\s+Quality=(\d+)
-)";
-
-char const ESSID[]=			//Here we define the RSL
-					//between delimiter markers as to not
-					//have problems with "( and )"
-R"delimiter(
 ^\s+E?SSID:"([[:print:]]+)"
-)delimiter";
-
-char const SSID[]=
-R"delimiter(
 ^\s+ssid="([[:print:]]+)"
 )delimiter";
 };	
 	
 int main()
 {
-	std::cout << encryptionKey << '\n' <<
-		     quality	   << '\n' <<
-     		     ESSID         << '\n' <<
-		     SSID	   << '\n';
+	std::cout << myString << '\n';
 		     		     
 }
