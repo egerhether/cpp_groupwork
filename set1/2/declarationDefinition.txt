@@ -1,0 +1,32 @@
+1. In C++ what's the difference between a declaration and a definition?
+
+Declaration in C++ sets a type and a name for a function or variable but
+does not specify a body of the function (in case of function declaration) or 
+value (in case of a variable) and does not allocate storage to the declared 
+thing.
+
+Definition on the other hand sets a body for a function or value of a variable
+in addition to the type and name while also allocating storage to the defined
+thing.
+
+2. What are header files used for?
+
+Header files may contain function definitions to be used within the files in 
+which said header files are included.
+
+3. When a compiler creates a program in what part of the construction process
+does it use header files and in what part libraries?
+
+Header files are are processed by a pre-processor before the compilation
+begins while libraries are linked into the executable after the compilation.
+
+4. Is library an object module?
+
+Kind of, libraries are usually collections of object modules.
+
+5. Why is an object file obtained after compiling a source containing 
+'int main()' not an executable programme?
+
+The compiled object file is not executable as it lacks the linking processes 
+performed after the compilation which includes additional instructions to the
+machine on how to execute the file and "how to read" the 'main' function.
