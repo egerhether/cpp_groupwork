@@ -1,4 +1,5 @@
 explain.txt
 hello.cc
+commands.txt
 out
 size.txt
