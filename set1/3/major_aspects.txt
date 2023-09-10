@@ -1,0 +1,34 @@
+1. The 'main' function:
+
+The type of 'main' function in C++ is 'int' while it is 'void' in C, it cannot
+be overloaded in C++ and one does not need an explicit return statement at the 
+end.
+
+2. Strict type checking
+
+C uses less strict type checking compared to C++ meaning that C++ needs to be 
+more rigorous in order for it to be compiled compared to C. So, for example
+not specifying the output of 'return' at the end of the function of a
+specified type will result in a compilation error.
+
+3. 'void' parameter
+
+C uses 'void' parameter to declare and define functions while in C++ it is 
+enough to omit the parameter fully to get the same result.
+
+4. __cplusplus
+
+Due to how C++ compilers work, every C++ source file is compiled as if it was
+prefaced with "#define __cplusplus" as a preprocessor directive.
+
+5. Default arguments
+
+C++ allows for definition of default arguments within function definitions,
+then the compiler substitutes the lack of argument in said function if no 
+argument is provided when running it by the default. 
+
+6. Overloading functions
+
+In C++ it is allowed to define functions under the same name which do not 
+perform the same action. This is however possible only if the functions don't 
+differ in the return type.
