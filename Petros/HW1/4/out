@@ -1,0 +1,4 @@
+^\s+Encryption key:(\w+)
+^\s+Quality=(\d+)
+^\s+E?SSID:"([[:print:]]+)"
+^\s+ssid="([[:print:]]+)"
