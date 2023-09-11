@@ -1,1 +1,1 @@
-declerationDefinition.txt
+declarationDefinition.txt
