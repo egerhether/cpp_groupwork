@@ -16,7 +16,7 @@ int main()
         
         cout << '\n';
 
-        if (inputLine.contains(-1))
+        if (inputLine.contains(EOF))
             break;
     }
 }
