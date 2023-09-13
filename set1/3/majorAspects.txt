@@ -2,24 +2,26 @@
 
 The type of 'main' function in C++ is 'int' while it is 'void' in C, it cannot
 be overloaded in C++ and one does not need an explicit return statement at the 
-end.
+end. Furthermore C is more liberal in its approach to the main function and
+any combination of arguments is allowed while in C++ it has to be 
+"int main (int argc, char *argv[])".
 
-2. Strict type checking
+2. Standard template library
 
-C uses less strict type checking compared to C++ meaning that C++ needs to be 
-more rigorous in order for it to be compiled compared to C. So, for example
-not specifying the output of 'return' at the end of the function of a
-specified type will result in a compilation error.
+C++ has a standard template library offering a collection of common data
+structures and algorithms, whereas C does not have such standardised library.
 
-3. 'void' parameter
+3. Exceptions
 
-C uses 'void' parameter to declare and define functions while in C++ it is 
-enough to omit the parameter fully to get the same result.
+C++ has a more involved exception handling (with usage of keywords such as
+"try", "catch" or "throw") allowing for different ways to manage errors. In C 
+on the other hand, a programmer must use error codes or check them manually.
 
-4. __cplusplus
+4. Type of programming language
 
-Due to how C++ compilers work, every C++ source file is compiled as if it was
-prefaced with "#define __cplusplus" as a preprocessor directive.
+C++ is an object-oriented programming language, which C is not. Thus in C++ 
+we work with classes and objects allowing for organization of code into 
+manageable units.
 
 5. Default arguments
 
@@ -30,5 +32,8 @@ argument is provided when running it by the default.
 6. Overloading functions
 
 In C++ it is allowed to define functions under the same name which do not 
-perform the same action. This is however possible only if the functions don't 
-differ in the return type.
+perform the same action, but they have to have different parameters and/or
+conts attribute. This is however possible only if the functions don't 
+differ in the return type as their only difference. This is because then 
+the functions would be indistiguishable to the compiler causing an error. 
+C does not allow for overloading.

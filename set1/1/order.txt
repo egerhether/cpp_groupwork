@@ -1,6 +1,3 @@
 explain.txt
 hello.cc
-commands.txt
-out
-descriptions.txt
-size.txt
+answers.txt

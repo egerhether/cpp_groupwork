@@ -1,0 +1,21 @@
+COMMANDS
+
+$ g++ -Wall -std=c++23 -Werror -o hello hello.cc	//to link
+$ g++ -Wall -std=c++23 -Werror -c hello.cc		//to compile
+
+DESCRIPTIONS
+
+the object file is file type used to link the programme to another c++
+programme. the executable file is the file that one can execute in their
+operating system to see the output of the programme.
+
+OUTPUT 
+
+Hello World 
+
+SIZES
+
+source file: 151 b
+executable file: 13624 b
+object file: 1296 b
+iostream: 3074 b

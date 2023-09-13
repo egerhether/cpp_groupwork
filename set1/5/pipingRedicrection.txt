@@ -1,17 +1,15 @@
 Redirection
 
-> redicrecting: this command in the terminal allows for saving the output of
-a program stated before the ">" symbol to a file after the symbol, for example
-"program > output.txt"
-
-< redictecting: this command in th terminal makes it so the program specified
-after the symbol is used as an input to the program or command before the "<",
-for example "program < input.txt"
+the ">" symbol allow for saving the output of the program to a file called 
+after the symbol. The "<" symbol allows for redirection of a file as an
+input to a program (on the left of the symbol). Thus "program < in > out"
+will use the file "in" as input of the program "program" and save its output
+to the file "out".
 
 Piping
 
 Piping allows for running multiple commands or programs in succession with
 the output of the preceding command or program being the input of the one 
-after it. So with "program1 | program2" we get to run program1 first,
-its output will be redirected to the input of program 2 which then will be 
+after it. So with "program | less" we get to run program first,
+its output will be redirected to the input of less which then will be 
 run with that input.
