@@ -1,0 +1,2 @@
+Purpose of this exercise: understand the `piping' and `redirection' concepts.
+Explain in your own words the meaning of redirection and piping.

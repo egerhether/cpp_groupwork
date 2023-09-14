@@ -1,3 +1,6 @@
+EXPLANATION
+This is a program that prints hello world
+
 COMMANDS
 
 $ g++ -Wall -std=c++23 -Werror -o hello hello.cc	//to link

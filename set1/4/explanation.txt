@@ -1,0 +1,2 @@
+This program copies the output of another program, but instead of doing so 
+using NTBSs, uses an RSL.

@@ -9,4 +9,3 @@ int main(int argc, char* argv[])
         ((argc == 2) ? argv[1] : argv[stoul(argv[1])])) << '\n';
 
 }
-

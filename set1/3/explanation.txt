@@ -1,0 +1,3 @@
+Describe six (major) aspects of C++ which are not available in C. Give 
+for each of these aspects a short (1, at most 2 sentences) description
+what its purpose is.

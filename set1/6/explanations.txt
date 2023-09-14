@@ -1,0 +1,2 @@
+This program has a positive integer stremed in through the command prompt,
+and streams out wether it is odd or even.

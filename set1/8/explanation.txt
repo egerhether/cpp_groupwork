@@ -1,0 +1,2 @@
+This program takes arguements in the command line and based on how many and
+their content, outputs a different "hello" message.
