@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     size_t currentPowerTwo = 1;
     int sizeOfBinary = sizeof(int) * 8;
 
-    while (unsignedNumber)
+    while (unsignedNumber) // while it's different from 0 create a string 
     {
         string bit = to_string(unsignedNumber & 1);
         binaryForm = bit + binaryForm;
@@ -26,9 +26,8 @@ int main(int argc, char *argv[])
         {
             if (powers.length() > 0)
                 powers = " + " + powers;
-            powers =to_string(currentPowerTwo) + powers;
+            powers = to_string(currentPowerTwo) + powers;
         }
-
         currentPowerTwo = 2 * currentPowerTwo;
     }
     
