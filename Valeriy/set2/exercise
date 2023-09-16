@@ -1,0 +1,13 @@
+#include <iostream>
+#include <string>>
+using namespace std;
+
+int main()
+{
+    
+    for(idx = 0; idx !=256; ++idx)
+        {
+
+        }
+}
+
