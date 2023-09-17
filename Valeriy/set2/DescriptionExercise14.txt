@@ -1,0 +1,2 @@
+Exercise 14:
+This program outputs all possible string combinations of the arguments given to it.
