@@ -9,8 +9,8 @@ int main()
 
     for (size_t idx = 100; idx != 1000; ++idx)
     {   
-        int num1 = idx - 13
-        int num2 = idx + 32
+        int num1 = idx - 13;
+        int num2 = idx + 32;
         bool square1 = false;           // True if num1 is square
         bool square2 = false;           // True if num2 is square
 
@@ -22,7 +22,7 @@ int main()
                                         // respectively. So we only
                                         // check odd numbers for num odd
                                         // and vice versa
-        for (size_t idx1 = (num1 % 2); idx1 != num1; idx1 += 2)
+        for (int idx1 = (num1 % 2); idx1 != num1; idx1 += 2)
         {
             if (num1 == idx1 * idx1)    // if so then num1 is square
             {
@@ -35,7 +35,7 @@ int main()
 
                                         // Check if num2 is square
                                         // exactly the same way as before
-        for (size_t idx1 = (num2 % 2); idx1 != num2; idx1 += 2)
+        for (int idx1 = (num2 % 2); idx1 != num2; idx1 += 2)
         {
             if (num2 == idx1 * idx1)
             {
@@ -62,4 +62,3 @@ int main()
         cout << "No number satisfies the requirements";
     }
 }
-
