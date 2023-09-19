@@ -1,9 +1,9 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
-int main(int argc, char *argv[])
+int main(argc, char *argv[])
 {
     ++argv;
                                         // 1 << (argc-1) = 2^(argc-1)
@@ -14,9 +14,7 @@ int main(int argc, char *argv[])
         for (int jdx = 0; jdx != argc; ++jdx)
         {
             if ((idx >> jdx) & 1)
-            {
                 cout << argv[jdx] << ' ';
-            }
         }
         cout << '\n';
     }

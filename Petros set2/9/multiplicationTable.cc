@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 					// for loop stopping at idx = 11
 					// incremented by 1 every iteration
 					// to multiply our value by 1 to 10
-	for (size_t idx = 1; idx != 11; ++idx)
+	for (int idx = 1; idx != 11; ++idx)
 	{				
 					// We stream out the multiplication
 					// table
