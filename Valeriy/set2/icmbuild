@@ -1,0 +1,648 @@
+//    This file does not contain additional comment.
+//    Comment is provided in the distribution files under ./scripts
+
+#include "icmconf"
+#ifndef USE_ECHO
+#define USE_ECHO ON
+#endif
+#ifdef USE_VERSION
+#include "VERSION"
+#else
+#define VERSION "0.01.00"
+#endif
+#ifndef ICM_DEP
+#define ICM_DEP     "-V go"
+#endif
+list    g_classes;
+int     g_nClasses;
+list    g_classLines;
+list    g_classLine;
+string  g_mainBase;
+#define _c          0
+#define _s          1
+#define _h          2
+list    g_options = ["-c", "-s", "-h"];
+int     g_option;
+#define _notFound   -1
+#define _clean      0
+#define _cleanTmp   1
+#define _cleanGch   2
+#define _install    3
+#define _library    4
+#define _program    5
+list    g_commands = ["clean", "cleantmp", "cleangch", "install", 
+                      "library", "program"];
+int     g_command;
+#define _iProgram   0
+#define _iStatic    1
+#define _iShared    2
+list g_installArgs = ["program", "static", "shared" ];
+int  g_installType;  
+string  g_installDest;
+int     g_compiled;
+string  g_version = VERSION;
+string  g_compiler;
+string  g_cwd = chdir("");
+string  g_gchDir = TMP_DIR + "/gch";
+void md(string dir)
+{
+    if (!exists(dir))
+        system("mkdir -p " + dir);
+}
+void showCd(string dir)
+{
+    if (USE_ECHO)    
+        printf("\n"
+                "chdir ", dir, "\n");
+}
+string setOpt(string install_im, string envvar)
+{
+    list optvar = getenv(envvar);    
+    return optvar[0] == "1" ? optvar[1] : install_im;
+}
+void setGcompiler()
+{
+#ifdef CXX
+    g_compiler = setOpt(CXX, "CXX") + " " + setOpt(CXXFLAGS, "CXXFLAGS");
+#else
+    #ifdef CC
+        g_compiler = setOpt(CC, "CC") + " " + setOpt(CFLAGS, "CFLAGS");
+    #else
+        #ifdef COMPILER
+            #ifdef COMPILER_OPTIONS
+                g_compiler = COMPILER + " " + COMPILER_OPTIONS;
+            #endif
+        #endif
+    #endif
+#endif
+}
+#ifdef PARSER_DIR
+void checkGrammar()
+{
+    chdir(PARSER_DIR);
+    list gramfiles = makelist(PARSSPEC);
+    #ifdef PARSFILES
+        gramfiles += makelist(PARSFILES);
+    #endif
+    
+    for (int idx = listlen(gramfiles); idx--; )
+    {
+        if (gramfiles[idx] younger PARSOUT)
+        {
+            showCd(PARSER_DIR);
+            if (USE_ECHO)
+                printf("New parser: `", gramfiles[idx], "' changed\n");
+            system(PARSGEN " " PARSFLAGS " " PARSSPEC);
+            break;
+        }
+    }
+    chdir("..");
+}
+#endif
+#ifdef SCANNER_DIR
+void checkLexer()
+{
+    chdir(SCANNER_DIR);
+    #ifdef PARSER_DIR
+        int rerun = PARSER_DIR != "" && 
+                    "../"PARSER_DIR"/"PARSOUT  younger SCANOUT;
+    
+        if (!rerun)
+    {
+        list scanfiles = makelist(PARSSPEC) + makelist(SCANSPEC);
+    #else
+    int rerun = 0;
+    {
+        list scanfiles = makelist(SCANSPEC);
+    #endif
+        #ifdef SCANFILES
+            scanfiles += makelist(SCANFILES);
+        #endif
+    
+        for (int idx = listlen(scanfiles); idx--; )
+        {
+            if (scanfiles[idx]  younger SCANOUT)
+            {
+                showCd(SCANNER_DIR);
+                rerun = 1;
+                break;
+            }
+        }
+    }
+    if (rerun)
+        system(SCANGEN " " SCANFLAGS " " SCANSPEC);
+    chdir("..");
+}
+#endif
+int readLine()
+{
+    g_classLine = fgets("CLASSES", g_classLine);
+    return listlen(g_classLine) && g_classLine[2] == "OK";
+}
+int empty(list entries)
+{
+    return !entries || entries[0][0] == '#' || strfind(entries[0], "//") == 0;
+}
+string  nextClassesEntry()
+{
+    list parts;
+    while (readLine())
+    {
+        string line = g_classLine[0];
+        int last = strlen(line) - 1;
+        int bs = line[last] == '\\';
+        if (bs)
+            line = resize(line, last);
+        list entries = strtok(line, " \t");
+        if (empty(entries))
+        {
+            if (!parts)
+                continue;
+            break;
+        }
+        parts += (list)entries[0];
+        if (bs)
+            continue;
+        break;
+    }
+    return parts ? parts[0] : "";
+}
+void setClasses()
+{
+#ifdef SCANNER_DIR
+    if (SCANNER_DIR != "")
+        g_classes = (list)SCANNER_DIR;
+#endif
+#ifdef PARSER_DIR
+    if (PARSER_DIR != "")
+        g_classes += (list)PARSER_DIR;
+#endif
+    while (1)
+    {
+        string class = nextClassesEntry();
+        if (strlen(class) == 0)
+            break;
+    
+        g_classes = listunion(g_classes, class);
+    }            
+        
+    g_nClasses = listlen(g_classes);
+}
+#ifdef USE_ALL
+void cleanUseAll()
+{
+    chdir(g_cwd);
+    echo(OFF);
+    exec("find ./ -name " + USE_ALL + " -exec rm '{}' \\;");
+    echo(USE_ECHO);
+}
+#endif
+void cleanPrecomp(string msg)
+{
+    #ifdef PRECOMP
+        printf(msg);
+        echo(OFF);
+        exec("rm -rf " + g_gchDir);
+    
+        for (int idx = listlen(g_classes); idx--; )
+        {
+            string class = g_classes[idx];
+            exec("rm -f " + class + '/' + class + IH ".gch");
+        }
+        #ifdef MAIN
+            exec("rm -f " + g_mainBase + IH ".gch");
+        #endif
+    #endif
+    exit(0);
+}
+void cleanTmp()
+{
+    printf("removing files in TMP_DIR except gch\n");
+    echo(OFF);
+    chdir(TMP_DIR);
+    list tmp = makelist(O_ALL, "*") - ["gch"];
+    for(int idx = 0, end = listlen(tmp); idx != end; ++idx)
+        system("rm -r " + tmp[idx]);
+    exit(0);
+}
+void clean()
+{
+    #ifdef USE_ALL
+        cleanUseAll();
+    #endif
+    system("rm -rf " TMP_DIR);
+    cleanPrecomp("");
+}
+void installFile(string source)
+{
+    string path = get_path(g_installDest);
+    if (path != "")
+        md(path);
+    if (exists(source))
+        system("install " + (g_option == _s ? "-s " : "") + source + ' ' + 
+                                                            g_installDest);
+    else
+        printf('`', source, "' not found\n");
+}
+void install()
+{
+    printf("INSTALL ", g_installType, ' ', g_installDest, 
+            g_option == _s ? ", stripped\n" : "\n");
+    if (g_installType == _iProgram)
+        installFile(TMP_DIR + "/bin/binary");
+    #ifdef LIBRARY
+    else if (g_installType == _iStatic)
+        installFile(TMP_DIR + "/lib" LIBRARY ".a");
+    #ifdef SHARED
+    else if (g_installType == _iShared)
+    {
+        md(g_installDest);
+        if (g_option == _s)
+            system("strip --strip-unneeded " TMP_DIR "/lib" LIBRARY ".so." +
+                                                            g_version);
+        system("cp -d " TMP_DIR "/lib" LIBRARY ".so.* " + g_installDest);
+    }
+    #endif
+    #endif
+    exit(0);
+}
+list inspect(string destDir, 
+             int prefix, string srcDir, list srcList, string library)
+{
+    string oprefix = destDir + "/" + (string)prefix;
+    srcDir += "/";
+    #ifdef USE_ALL
+        string all = srcDir + USE_ALL;
+    #endif
+    for (int idx = listlen(srcList); idx--; )
+    {
+        string file  = srcList[idx];   
+        string source = srcDir + file;
+        string ofile = oprefix + change_ext(file, "o");
+        #ifdef USE_ALL
+            if (ofile older all)
+            {
+                if (listfind(srcList, file) == -1)
+                    srcList += (list)file;
+            }
+            else 
+        #endif
+            if (source older ofile || source older library)
+                srcList -= (list)file;
+    }
+    return srcList;
+}
+void c_compile(int prefix, string destDir, string srcDir, list cfiles)
+{
+    showCd(srcDir);
+    if (srcDir != "")
+        srcDir += "/";
+    string compiler = g_compiler + " -c -o " + destDir + "/" + (string)prefix;
+    for (int idx = listlen(cfiles); idx--; )
+    {
+        string file = cfiles[idx];
+        system(compiler + change_ext(file, OBJ_EXT) + " " + srcDir + file);
+        g_compiled = 1;
+    }
+}
+void std_cpp(int ignoreMain, string destDir, 
+            int prefix, string srcDir, string library)
+{
+    chdir(g_cwd);
+    md(destDir);
+    chdir(srcDir);
+    list files = makelist(SOURCES);
+#ifdef MAIN
+    if (ignoreMain)
+        files -= (list)MAIN;
+#endif
+    chdir(g_cwd);
+    files = inspect(destDir, prefix, srcDir, files, library);  
+    if (listlen(files))
+        c_compile(prefix, destDir, srcDir, files);
+}
+void compileAll(string libPath)
+{
+    g_compiled = 0;
+    libPath = g_cwd + TMP_DIR "/" + libPath;
+    for (int idx = g_nClasses; idx--; )
+        std_cpp(0, TMP_DIR + "/o", idx + 1, g_classes[idx], libPath);
+        
+    std_cpp(1, TMP_DIR + "/o", 0, ".", libPath);  
+}
+#ifdef LIBRARY
+void static_library()
+{
+    chdir(TMP_DIR + "/o");
+    if (g_compiled)
+    {
+        system("ar cr ../lib" LIBRARY + ".a *" OBJ_EXT);
+        system("ranlib ../lib" LIBRARY + ".a");
+        system("rm *" OBJ_EXT);
+    }
+}
+#ifdef SHARED
+void shared_library()
+{
+    string libso = "lib" LIBRARY ".so";
+    string libsoshared = libso + "." + g_version;
+                                    
+    g_compiler += " -fPIC ";
+    compileAll(libsoshared);
+    if (!g_compiled)
+        return;
+    string libsomajor  = libso + "." + element(0, strtok(g_version, "."));
+    chdir(TMP_DIR);
+    
+    system(g_compiler + " -shared -Wl,--as-needed,-z,defs,-soname," + 
+            libsomajor + " -o " + libsoshared + " o/*.o "
+            SHAREDREQ);
+    
+    system("ln -sf " + libsoshared + " " + libsomajor);
+    system("ln -sf " + libsomajor  + " " + libso);
+}
+#endif
+#endif
+#ifdef PRECOMP
+void loadClass(string class)
+{
+    string classIH = class + IH;
+    string classGch = classIH + ".gch";
+    string storedGch = g_cwd + g_gchDir + '/' + classGch;
+    if (!exists(classGch) && exists(storedGch))
+    {
+        echo(OFF);
+        system("mv " + storedGch + " .");
+        echo(USE_ECHO);
+    }
+}
+void loadPrecompile(list classes)
+{
+    for (int idx = listlen(g_classes); idx--; )
+    {
+        string class = g_classes[idx];
+        chdir(class);
+        loadClass(class);        
+        chdir(g_cwd);
+    }
+    #ifdef MAIN
+        loadClass(g_mainBase);
+    #endif
+}
+void precompile(string class)
+{
+    string classIH = class + IH;
+    if (!exists(classIH))
+    {
+        printf << "[Warning] directory " << class << " has no `" <<
+                  classIH << "' file: maybe remove `" << class << 
+                  "' from CLASSES?\n";
+        return;
+    }
+    string classGch = classIH + ".gch";
+    if (listlen(makelist(SOURCES)) == 0)
+    {
+        #ifndef NO_PRECOMP_WARNING
+            if (classGch older classIH)
+                printf << "[Warning] no sources in " << class <<
+                          ": header not precompiled\n";
+        #endif
+        echo(0);
+        system("touch " + classGch);
+        echo(USE_ECHO);
+        return;
+    }
+    if (classGch older classIH)
+        system(g_compiler + " " PRECOMP " " + classIH);
+}
+void precompileHeaders(list classes)
+{
+    for (int idx = listlen(g_classes); idx--; )
+    {
+        string class = g_classes[idx];
+        chdir(class);
+        precompile(class);        
+        chdir(g_cwd);
+    }
+    
+    #ifdef MAIN
+        precompile(g_mainBase);
+    #endif
+}
+#endif
+void checkVersion()
+{
+    string version = "version" + get_dext(SOURCES);
+    if (exists(version) &&
+        (
+            "VERSION" younger version || "YEARS" younger version || 
+            "AUTHOR" younger version
+        )
+    )
+    {
+        echo(OFF);
+        system("touch " + version);
+        echo(USE_ECHO);
+    }
+}
+void libraryPreamble()
+{
+    #ifdef PARSER_DIR
+        if (PARSER_DIR != "")
+            checkGrammar();
+    #endif
+    
+    #ifdef SCANNER_DIR
+        if (SCANNER_DIR != "")
+            checkLexer();
+    #endif
+    #ifdef PRECOMP
+        list classes = makelist(O_SUBDIR, "*");
+        loadPrecompile(classes);
+    #endif
+    if (strlen(ICM_DEP))
+        system("icmake -d " ICM_DEP);
+    #ifdef PRECOMP
+        precompileHeaders(classes);
+    #endif
+    checkVersion();
+}
+void build_libraries()
+{
+    libraryPreamble();
+    #ifdef LIBRARY
+        string libName = "lib" LIBRARY ".a";
+    #else
+        string libName = "lib.a";
+    #endif
+    compileAll(libName);
+    #ifdef LIBRARY
+        static_library();
+        #ifdef SHARED
+            chdir(g_cwd);
+            shared_library();
+        #endif
+    #endif
+    chdir(g_cwd);
+}
+string addLibs(string spec, string flag)
+{
+    string ret;
+    list cut = strtok(spec, " ");
+    for (int idx = 0, end = listlen(cut); idx != end; ++idx)
+        ret += flag + cut[idx];
+    return ret;
+}
+#ifdef ADD_LIBRARIES
+string useLibs()
+{
+    return addLibs(ADD_LIBRARIES, " -l") + addLibs(ADD_LIBRARY_PATHS, " -L");
+}
+#endif
+void link(string maino)
+{
+    chdir(TMP_DIR);
+    string compiler = g_compiler + " -o bin/binary " + maino;
+    #ifdef LIBRARY
+        compiler += " -l" LIBRARY " -L.";
+    #else
+        if (listlen(makelist("o/*" OBJ_EXT)))
+            compiler += " o/*" OBJ_EXT;
+    #endif
+    #ifdef ADD_LIBRARIES
+        compiler += useLibs();
+    #endif
+    #ifdef LDFLAGS
+        compiler += " " + setOpt(LDFLAGS, "LDFLAGS");
+    #else
+        #ifdef LINKER_OPTIONS
+            compiler += " " + LINKER_OPTIONS;
+        #endif
+    #endif
+    #ifndef REFRESH
+        if (g_compiled || maino younger "../bin/binary" 
+        #ifdef LIBRARY
+            || 
+            "lib" LIBRARY ".a" younger "../bin/binary"
+        #endif
+        )
+    #endif
+    {
+        showCd(TMP_DIR);
+        system(compiler);
+    }
+    chdir("");
+}
+void program()
+{
+    #ifdef MAIN
+        string maino = change_ext(MAIN, OBJ_EXT);
+    
+        md(TMP_DIR "/bin");
+    
+        int compileMain = 0;
+        #ifdef USE_ALL
+            compileMain = exists(USE_ALL);
+        #endif
+    
+        if (compileMain || MAIN younger TMP_DIR + "/" + maino)
+        {
+            printf("\n"
+                    "RECOMPILE: " MAIN "\n");
+            system(g_compiler + " -c -o " + TMP_DIR + "/" + maino + " " MAIN);
+        }
+        link(maino);
+    #endif
+}
+void getCommand(list argv)
+{
+    g_option = listfind(g_options, argv[1]);
+    string cmd =    argv[1 + (g_option != _notFound)];
+    g_command = listfind(g_commands, cmd);
+    if (g_option != _h)
+    {
+        if (g_command == _notFound)
+        {
+            int opt = g_option;
+            g_option = _h;
+            #ifdef DEFCOM
+                if (!cmd)
+                {
+                    g_command = listfind(g_commands, DEFCOM);
+                    if (g_command >= _library)
+                        g_option = opt;
+                }
+            #endif
+        }
+        else if (g_command == _install)
+        {
+            g_installType = listfind(g_installArgs, 
+                                        argv[2 + (g_option != _notFound)]);
+            if (g_installType == _notFound)
+                g_option = _h;
+            else
+                g_installDest = argv[3 + (g_option != _notFound)];
+        }
+    }
+    if (g_option == _h)
+    {
+        exec("icmbuild -h");
+        exit(0);
+    }
+}
+#ifdef PRECOMP
+void moveGch(string from, string gchBase)
+{
+    from += '/' + gchBase + IH + ".gch";
+    if (exists(from))
+        exec("mv " + from + ' ' + g_gchDir + '/');
+}
+void storeGch()
+{
+    echo(OFF);
+    chdir(g_cwd);
+    for (int idx = listlen(g_classes); idx--; )
+    {
+        string class = g_classes[idx];
+        moveGch(class, class);
+    }
+    if (g_mainBase != "")
+        moveGch(".", g_mainBase);
+}
+#endif
+void main(int argc, list argv, list envp)
+{
+    echo(USE_ECHO);
+    setGcompiler();
+    getCommand(argv);
+    setClasses();
+    #ifdef MAIN
+        g_mainBase = get_base(MAIN);
+    #endif
+    if (g_command == _clean)
+        clean();
+    if (g_command == _cleanTmp)
+        cleanTmp();
+    if (g_command == _cleanGch)
+        cleanPrecomp("removing all precompiled headers\n");
+        
+    #ifdef PRECOMP
+        md(g_gchDir);
+    #endif
+    if (g_command == _install)
+        install();
+    #ifdef CLS
+        g_option = _c;
+    #endif
+    if (g_option == _c)
+        system("tput clear");
+    build_libraries();
+    if (g_command == _program)
+        program();
+    #ifdef USE_ALL
+        cleanUseAll();
+    #endif
+    #ifdef PRECOMP
+        storeGch();
+    #endif
+}
