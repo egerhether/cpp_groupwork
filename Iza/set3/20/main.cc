@@ -18,11 +18,10 @@ int main(int argc, char **argv)
         case 'l':
             countLines();
             break;
+
         default:
             cout << "Enter either '-c', '-w', or '-l'\n";
         }
-
-
     }
     else 
     {

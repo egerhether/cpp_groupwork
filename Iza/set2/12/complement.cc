@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     string binaryForm;
     string powers;
     size_t currentPowerTwo = 1;
-    int sizeOfBinary = sizeof(int) * 8;
+    int sizeOfBinary = sizeof(number) * 8;
 
     while (unsignedNumber) // while it's different from 0 create a string 
     {

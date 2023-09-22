@@ -1,0 +1,10 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+size_t findcase(string const &str, string const &target, size_t offset);
+string str_tolower(string str);
+
+

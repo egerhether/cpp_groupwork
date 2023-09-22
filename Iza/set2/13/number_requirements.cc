@@ -1,4 +1,5 @@
 # include <iostream>
+# include <cmath>
 
 using namespace std;
 
@@ -6,38 +7,19 @@ int main()
 {
     for (size_t nr = 100; nr != 1000; ++nr)
     {
-        bool square1 = false;
-        bool square2 = false;
-
-        for (size_t idx = 1; idx * idx < nr - 13; ++idx)
-        {
-            if (((nr - 13) % idx == 0) && ((nr - 13) / idx == idx))
-            {
-                square1 = true;
-                break;
-            }
-        }
-
-        for (size_t idx = 1; idx * idx < nr + 32; ++idx)
-        {
-            if (((nr + 32) % idx == 0) && ((nr + 32) / idx == idx))
-            {
-                square2 = true;
-                break;
-            }
-        }
-
-        if (square1 & square2)
+                                            // check if number fulfils 
+                                            // requirements
+        if (size_t sqrt1 = sqrt(nr - 13), sqrt2 = sqrt(nr + 32); 
+                sqrt1 * sqrt1 == nr - 13 && sqrt2 * sqrt2 == nr + 32)
         {   
             cout << nr << " satisfies the requirements\n";
             break;
         }
 
-        if (nr == 999)
+        if (nr == 999) // if we go through all numbers and none fulfil
         {
             cout << "No number satisfying the requirements was found\n";
             return 1;
         }
-    }
-        
+    }      
 }
