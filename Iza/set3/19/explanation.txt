@@ -1,0 +1,264 @@
+1. define int-type parameter
+
+It is appropriate to define an int-type parameterwhen we want our function to 
+take a numerical value as an input and we do not want to alter the input of 
+the parameter when running the function. In the code example this is 
+illustrated because we want our parameter to be printed greater by one 
+without changing the original input. If we cout value after running 
+greaterByOne it will stay at its original value.
+
+void greaterByOne(int value)
+{
+    value += 1;
+    cout << value;
+}
+
+2. define std::string value parameter
+
+It is appropriate to define a std::string parameter when we want our function 
+to take a non-numerical value as an input and we do not want to alter the 
+the value of the parameter when running the function. 
+In the code example this is illustrated because we want our function to cout
+the first character of the input. After running firstChar(string) where 
+string = "hello", string will still be the same.
+
+void firstChar(std::string str)
+{
+    str = str[0];
+    cout << str;
+}
+
+3. define const reference to an int-type parameter
+
+It is appropriate to define a const reference to an int-type parameter
+when we want our function to take a numerical value as an input and we do not 
+want to alter the parameter within the function. 
+In the code example this is illustrated In the code example this is 
+illustrated because we just want our function to cout the number 3 times.
+We do not do any operations that contradict the const state of the parameter.
+
+void cout3(int const &value)
+{
+    for (size_t idx = 0; idx != 3; ++idx)
+        cout << value;
+}
+
+4. define const reference to a std::string value parameter
+
+It is appropriate to define a const reference to a std::string parameter
+when we want our function to take a non-numerical value as an input and we 
+do not want to alter the parameter within the function. 
+In the code example this is illustrated In the code example this is 
+illustrated because we want to count spaces in our function. We do not do any 
+operations that contradict the const state of the parameter.
+
+size_t nrOfSpaces(std::string const &str)
+{
+    size_t spaces = 0;
+    // iterator over str
+    {
+        if (it == ' ')
+            spaces += 1;
+    }
+    return spaces;
+}
+
+5. define non-const reference to an int-type parameter
+
+It is appropriate to define a non-const reference to an int-type parameter
+when we want our function to take a numerical value as an input and we 
+do want to alter the input of the parameter within the function so that it is
+kept outside of the function too. In the code example this is illustrated 
+because we add one to the input of the function. This function permanently 
+increments value by one.
+
+void greaterByOne(int &value)
+{
+    value += 1;
+}
+
+6. define non-const reference to a std::string parameter
+
+It is appropriate to define a non-const reference to std::string parameter
+when we want our function to take a non-numerical value as an input and we 
+do want to alter the input of the parameter within the function so that it is 
+kept outside the function. In the code example this is illustrated because 
+we make the input of firstChar change into its first character permanently.
+
+void firstChar(std::string str)
+{
+    str = str[0];
+}
+
+7. define const rvalue-reference to an int-type parameter
+
+It is appropriate to define a const rvalue-reference to an int-type parameter
+when we want our function to take a numerical value as an input and we 
+are overloading the function such that we don't want it to accept any rvalue
+references as arguments. In the code example this is illustrated because 
+we define function print such that it can only take lvalue references, but 
+will give error when presented with an rvalue reference as an argument.
+
+void print(int &value)
+{
+    cout << value;
+}
+void print(int const &value)
+{
+    cout << value;
+}
+void print(int const &&value) = delete;
+
+
+
+8. define const rvalue-reference to a std:string value parameter
+
+It is appropriate to define a const rvalue-reference to a std::string 
+parameter when we want our function to take a non-numerical value as an input 
+and we are overloading the function such that we don't want it to accept any 
+rvalue references as arguments. In the code example this is illustrated 
+because we define function print such that it can only take lvalue references, 
+but will give error when presented with an rvalue reference as an argument.
+
+void print(std::string &str)
+{
+    cout << str;
+}
+void print(std::string const &str)
+{
+    cout << str;
+}
+void print(std::string const &&str) = delete;
+
+9. define rvalue-reference to an int-type parameter
+
+It is appropriate to define an rvalue-reference to an int-type parameter when
+we want the function to use the argument given to it to not be an lvalue and 
+change it and it be a numerical value. In the code example this is illustrated 
+as use the argument given as an rvalue compiles while the argument as an 
+lvalue doesn't.
+
+int inc(int &&value)
+{
+    int valueNew = value + 1;
+    return valueNew;
+}
+
+inc(1); // works
+int val = 1;
+inc(val); // error, can't take int as int&&
+
+10. define rvalue-reference to a std::string value parameter
+
+It is appropriate to define an rvalue-reference to a std::string parameter 
+when we want the function to use the argument given to it to not be an lvalue 
+and change it and it be a non-numerical value. In the code example this is 
+illustrated as use the argument given as an rvalue compiles while the argument 
+as an lvalue doesn't.
+
+char firstChar(std::string &&str)
+{
+    char first = str[0];
+    return first;
+}
+
+firstChar("string"); // works
+string str = "string";
+inc(str); // error, can't take string as string&&
+
+11. return an int-type 
+
+It is appropriate to return an int-type when we want our function to 
+return a numerical value. In the code example this is illustrated because
+our function performs summation.
+
+int sum(int vals[])
+{
+    int summed = 0;
+    // for loop summing the vals
+    return sum;
+}
+
+12. return an std::string value
+
+It is appropriate to return a std::string when we want our function to 
+return a set of non-numerical characters. In the code example this is illustrated because
+our function reverses the given std::string parameter.
+
+std::string reverse(std::string inputLine)
+{
+    std::string revLine;
+    // reverse iterator over inputLine appending each character pointed to
+    // to revLine
+    return revLine;
+} 
+
+13. return a const reference to an int
+
+It is appropriate to return a const reference to an int when we want our
+function to not copy the object (i.e. work on references) which can be more
+efficient and also forbid the output from being used in non-const functions 
+with the output being a numerical value. This however doesn't have a specific 
+code example as it just differs in what we want to do with the return value 
+later.
+
+14. return a const reference to a std::string
+
+It is appropriate to return a const reference to a std::string when we want 
+our function to not copy the object (i.e. work on references) which can be 
+more efficient and also forbid the output from being used in non-const 
+functions with the output being a non-numerical value. This however doesn't 
+have a specific code example as it just differs in what we want to do with the 
+return value later.
+
+15. return a non-const reference to an int
+
+It is appropriate to return a non-const reference to an int when we want our
+function to not copy the object (i.e. work on references) which can be more 
+efficient but we want to change the output by later functions with it being a
+numerical value. This however doesn't have a specific code example as it
+just differs in what we want to do with the return value later.
+
+16. return a non-const reference to a std::string
+
+It is appropriate to return a non-const reference to a std::string when we 
+want our function to not copy the object (i.e. work on references) which can 
+be more efficient but we want to change the output by later functions with it 
+being a non-numerical value. This however doesn't have a specific code example 
+as it just differs in what we want to do with the return value later.
+
+17. return a const rvalue-reference to an int
+
+It is appropriate to return a const rvalue-reference to an int when we want 
+our function to not copy the object (i.e. work on references) which can be 
+more efficient and we want to use the ouput of the function strictly as a 
+const rvalue which is a numerical value. This however doesn't have a specific 
+code example as it just differs in what we want to do with the return value 
+later.
+
+18. return a const rvalue-reference to a std::string
+
+It is appropriate to return a const rvalue-reference to a std::string when we 
+want our function to not copy the object (i.e. work on references) which can 
+be more efficient and we want to use the ouput of the function strictly as a 
+const rvalue which is a non-numerical value. This however doesn't have a 
+specific code example as it just differs in what we want to do with the return 
+value later.
+
+19. return an rvalue-reference to an int
+
+It is appropriate to return a rvalue-reference to an int when we want 
+our function to not copy the object (i.e. work on references) which can be 
+more efficient and we want to use the ouput of the function strictly as a 
+an rvalue which is a numerical value but we can use it in fucntions that 
+accept non-const arguments. This however doesn't have a specific code example 
+as it just differs in what we want to do with the return value later.
+
+20. return an rvalue-reference to a std::string
+
+It is appropriate to return a rvalue-reference to a std::string when we want 
+our function to not copy the object (i.e. work on references) which can be 
+more efficient and we want to use the ouput of the function strictly as a 
+an rvalue which is a non-numerical value but we can use it in fucntions that 
+accept non-const arguments. This however doesn't have a specific code example 
+as it just differs in what we want to do with the return value later.
