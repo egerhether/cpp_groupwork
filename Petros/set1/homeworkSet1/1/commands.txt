@@ -1,0 +1,2 @@
+$ g++ -Wall -std=c++23 -Werror -o hello hello.cc	//to link
+$ g++ -Wall -std=c++23 -Werror -c hello.cc		//to compile
