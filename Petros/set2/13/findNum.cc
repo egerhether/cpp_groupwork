@@ -10,11 +10,9 @@ int main()
 
     for (size_t idx = 100; idx != 1000; ++idx)
     {   
-        int lower = idx - 13;
-        int upper = idx + 32;
-        
-        if (int (sqrt(lower)) * int (sqrt(lower)) == lower &&
-            int (sqrt(upper)) * int (sqrt(upper)) == upper)
+        if (size_t lower = idx - 13, upper = idx + 32; 
+            sqrt(lower) * sqrt(lower) == lower &&
+            sqrt(upper) * sqrt(upper) == upper)
         {
             state = true;
             satisfies = idx;

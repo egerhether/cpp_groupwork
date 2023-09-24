@@ -19,7 +19,7 @@ int main()
                                         // to check whether they are letters
                                         // using isupper or islower (all 
                                         // letters are one or the other)
-        if (isupper(letter) || islower(letter))
+        if (isalpha(letter))
             asciiLetters += letter;     // if letter append to our string
     }
 
