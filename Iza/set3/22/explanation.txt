@@ -1,0 +1,6 @@
+write a function that implements both efficient and direct computation of
+fibonacci numbers
+
+Findings: The inefficient direct recursion works pretty well for numbers up to
+40 computing in under a second but then with each new number computation time
+explodes.

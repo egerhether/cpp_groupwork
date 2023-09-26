@@ -1,0 +1,1 @@
+write a programme that implements a case insensitive find 

@@ -1,0 +1,2 @@
+create a function returning a struct ReturnValues which depends on terminal
+argumens
