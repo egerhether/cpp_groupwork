@@ -1,0 +1,66 @@
+1. Encapsulation
+
+Encapsulation is a process of grouping data and functions together, usually in
+a class such that functions only operate on variables within the same class.
+This allows for impoved readability and security as firstly, only objects of 
+that class can call the function and thus we are conceiving complexity of our
+program from the outside as well as it allows for convenient grouping of
+related data and functions. 
+
+class word{
+
+    char firstLetter;
+
+    public:
+    void showFirstLetter()
+    {
+        cout << firstLetter << '\n';
+    }
+
+    void setFirstLetter(char letter)
+    {
+        firstLetter = letter;
+    }
+}
+
+Here we see we were able to group related function and variable together and 
+furthermore the variable itself is not accessible directly outside of the 
+class, it can only be used by the functions within.
+
+2. Data hiding
+
+Data hiding is a process for which we use encapsulation. Its goal is to
+protect sensitive data from being accessed in ways not specified when
+programming as well as prevent them from being modified. It is very important
+for security of the data handling that can be done by the programme.
+
+class bankAcc{
+
+    int balance;
+
+    bool verifyValid(int transaction)
+    {
+        bool change;
+        \\ function that verifies if change to bank balance is valid
+        return change;
+    }
+
+    public:
+    
+    void changeBalance(int transaction)
+    {
+        if (verifyValid(transaction))
+            balance -= transaction;
+    }
+
+
+}
+
+In this example we see that balance is not directly accessible as well as the 
+method of checking if transction is valid which allows for improved security.
+We only allow to change balance if the transaction is valid but we don't
+reveal how we check it.
+
+
+Class implementation is irrelevant to this exercise as classes are separate 
+from their implementations and should work the same in each implementation.
