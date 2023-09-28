@@ -2,12 +2,12 @@
 
 void Person::extract(std::istream &istream)
 {
-    size_t idx = 0;
     std::string input;
-
-    while (std::getline(istream, input,','))
+    
+    for (size_t idx = 0; idx != 4; ++idx)
     {
-        switch(idx % 4)
+        std::getline(istream, input,',');
+        switch(idx)
         {
             case 0:
             setName(input);
@@ -25,6 +25,5 @@ void Person::extract(std::istream &istream)
             setMass(std::stoul(input));
             break;
         }
-        ++idx;
     }
 }
