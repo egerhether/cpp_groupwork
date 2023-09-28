@@ -1,3 +1,6 @@
+#ifndef PERSON_H_
+#define PERSON_H_
+
 #include <string>
 
 class Person
@@ -20,3 +23,5 @@ class Person
         std::string const &phone() const;
         size_t mass() const;
 };
+
+#endif

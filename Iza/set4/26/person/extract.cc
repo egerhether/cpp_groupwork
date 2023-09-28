@@ -1,11 +1,11 @@
-#include "person.h"
+#include "person.ih"
 
 void Person::extract(std::istream &istream)
 {
     size_t idx = 0;
     std::string input;
 
-    while (std::getline(istream,input,','))
+    while (std::getline(istream, input,','))
     {
         switch(idx % 4)
         {
@@ -25,6 +25,6 @@ void Person::extract(std::istream &istream)
             setMass(std::stoul(input));
             break;
         }
-        idx += 1;
+        ++idx;
     }
 }

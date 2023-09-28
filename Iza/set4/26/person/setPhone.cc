@@ -1,4 +1,4 @@
-#include "person.h"
+#include "person.ih"
 
 void Person::setPhone(std::string const &phone)
 {

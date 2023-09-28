@@ -1,4 +1,4 @@
-#include "person.h"
+#include "person.ih"
 
 void Person::setAddress(std::string const &address)
 {
