@@ -5,7 +5,7 @@ void countWords()
     string inputLine;
     size_t nrWords = 0;
 
-    while(getline(cin,inputLine)) // while there's lines to input
+    while( getline(cin,inputLine)) // while there's lines to input
     {
 
         for (string::const_iterator it = inputLine.begin();

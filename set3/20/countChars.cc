@@ -5,7 +5,7 @@ void countChars()
     string inputLine;
     size_t nrChars = 0;
 
-    while(getline(cin,inputLine)) // while there's line to input
+    while (getline(cin,inputLine)) // while there's line to input
     {
 
         for (string::const_iterator it = inputLine.begin();

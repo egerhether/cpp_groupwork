@@ -5,7 +5,7 @@ void countLines()
     string inputLine;
     size_t nrLines = 0;
 
-    while(getline(cin,inputLine)) // while there's lines to input
+    while (getline(cin,inputLine)) // while there's lines to input
     {
         nrLines += 1; // add one to line
     }
