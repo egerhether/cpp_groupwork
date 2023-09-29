@@ -8,7 +8,8 @@ namespace Icmake
     extern char author[];
 };
 
-namespace instructions{
+namespace instructions
+{
 char const info[]=
 R"(*******USAGE INFORMATION********
 This program takes as args first
@@ -26,7 +27,8 @@ void usage(std::string const &progname);
 
 using namespace std;
 
-struct ReturnValues {
+struct ReturnValues 
+{
     bool ok;
     size_t nr;
     string value;
