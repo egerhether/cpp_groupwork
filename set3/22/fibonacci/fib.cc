@@ -1,5 +1,12 @@
 #include "fibonacci.ih"
 
+namespace 
+{
+    int const MAXFIB = 90;
+    int const ENDFIB = MAXFIB + 1;
+    size_t fibval[ENDFIB] = {};
+};
+
 size_t fib(size_t value)
 {
     if (value <= 2) // base case
