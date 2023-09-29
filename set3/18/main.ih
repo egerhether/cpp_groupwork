@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+
+namespace Icmake
+{
+    extern char version[];
+    extern char years[];
+    extern char author[];
+};
+
+namespace instructions{
+char const info[]=
+R"(*******USAGE INFORMATION********
+This program takes as args first
+an integer (bigger than 0), then
+any other arg. The program then 
+prints the arg that is on the 
+position of the integer given if 
+it exists and prints a short 
+message if it does not.
+********************************
+)";
+};
+
+void usage(std::string const &progname);
+
+using namespace std;
+
+struct ReturnValues {
+    bool ok;
+    size_t nr;
+    string value;
+};
+
+void boundCall(int argc, char **argv);
+void displayVals(ReturnValues values);
+ReturnValues combine (int argc, char **argv);
+bool structCall(int argc, char **argv);

@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+
+namespace Icmake
+{
+    extern char version[];
+    extern char years[];
+    extern char author[];
+};
+
+void usage(std::string const &progname);
+void countChars();
+void countWords();
+void countLines();
+
+using namespace std;

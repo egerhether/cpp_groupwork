@@ -1,0 +1,2 @@
+write a program that counts characters, lines or words of the input based on
+the command line argument

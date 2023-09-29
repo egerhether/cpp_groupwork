@@ -1,0 +1,2 @@
+This program sums up the arguements given to it (int or double). It does 
+this thru an overloaded sum function.

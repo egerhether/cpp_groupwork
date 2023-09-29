@@ -1,0 +1,16 @@
+We create a lobrary "cppmath" containing sqrt and trig functions.
+
+To make libcppmath.a I put this line in my Makefile:
+libcppmath.a: utils/usage.o/revert.o
+	ar rcs $@ $^
+which creates this convenience library from all the .o files.
+
+I made cppmath.cc and linked it with main. The size of the executable 
+created was: 41344 b
+the size of the executable created when I linked main to libcppmath.a
+was: 40916 b
+These sizes are very similar because my compiler uses LTO.
+Link Time Optimization (LTO) gives the compiler the capability of dumping its
+internal representation to disk, so that all the different 
+files that make up a single executable can be optimized as a single module.
+(similar to a conv library).

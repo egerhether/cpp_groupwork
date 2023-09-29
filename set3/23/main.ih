@@ -1,0 +1,4 @@
+#include "libcppmath/cppmath.hh"
+#include <iostream>
+
+using namespace std;

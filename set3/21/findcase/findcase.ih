@@ -1,0 +1,4 @@
+#include "findcase.h"
+#include <cctype>
+
+using namespace std;
