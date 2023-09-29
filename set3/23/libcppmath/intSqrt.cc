@@ -2,7 +2,7 @@
 
 int sqrt(int square)
 {
-    if (square < 0)
+    if (square < 0)             // Check if negative
     {
         cout << "input a positive number";
         return square;
