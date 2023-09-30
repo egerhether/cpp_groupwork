@@ -11,5 +11,5 @@ user    0m7,253s
 sys     0m1,091s
 
 We see that with precompiled headers the compilation time is about a second 
-faster. This nwould be even more apparent if the project was bigger and 
-contained more than one class.
+faster. This increase in efficiency would be even more apparent if the project 
+was bigger and contained more than one class.
