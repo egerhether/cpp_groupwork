@@ -1,0 +1,3 @@
+Encapsulation can be thought of as putting your data and the actions that can be performed on that data into a box. You can only interact with the box using the methods provided on the box,
+which helps with preventing mistakes and keeping everything easily understandable and modifiable.
+Data hiding is a importan part of encapsulation. It means making something inside the box private and not modifiable from outside, which helps with avoiding errors and unintended changes.
