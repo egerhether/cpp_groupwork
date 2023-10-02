@@ -1,2 +1,2 @@
-Authors: Petros Charagkionis, Izabela Kurek, Valeriy Malikov
+Authors: Petros Charagkionis, Izabela Kurek, Mathias Randrüüt
 Set: set 3
