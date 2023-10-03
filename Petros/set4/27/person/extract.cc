@@ -6,8 +6,7 @@ void Person::extract(istream &data)
     
     for (size_t idx = 0; idx != 4; ++idx)
     {
-        std::getline(data, input, ',');
-        
+        getline(data, input, ',');
         switch(idx)
         {
             case 0:

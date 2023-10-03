@@ -8,6 +8,6 @@ int main()
     p.Person::setAddress("hello@gmail.com");
     p.Person::address();
     p.Person::printPerson(p);
-    
-    std::cout << p.Person::insert(std::cout);
+    std::cout << "insert function test\n";
+    p.Person::insert(std::cout);
 }
