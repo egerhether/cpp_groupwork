@@ -12,10 +12,10 @@ int main()
         switch (result)
         {
         case Parser::NUMBER:
-            cout << "Parsed number: " << number << std::endl;
+            cout << "Parsed number: " << number << '\n';
             break;
         case Parser::NO_NUMBER:
-            cout << "There is no number on this line." << std::endl;
+            cout << "There is no number on this line." << '\n';
             break;
         case Parser::EOLN:
             cout << "End of line reached." << '\n';
@@ -25,7 +25,7 @@ int main()
         }
 
         bool isIntegral = parser.isIntegral();
-        cout << "Is integral: " << (isIntegral ? "true" : "false") << std::endl;
+        cout << "Is integral: " << (isIntegral ? "true" : "false") << '\n';
 
         string next = parser.next();
         cout << "Next substring: " << next << '\n';
