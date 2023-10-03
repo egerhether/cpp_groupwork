@@ -27,7 +27,7 @@ bool Parser::pureDouble(double *dest, string const &str)
         return true;    // successful conversion
     }
     catch (const exception &)
-    {                   // sonversion failed
+    {                   // conversion has failed,  catch it
         return false;  
     }
 }
