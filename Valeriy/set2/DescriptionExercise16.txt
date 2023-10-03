@@ -1,3 +1,0 @@
-Exercise 16: 
-A simulation of the Monty Hall problem for a given number of iterations, where the suggested door is always picked. 
-Additionally, has the option of verbose output and a random seed taken from current unix time. 

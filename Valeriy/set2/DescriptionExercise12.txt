@@ -1,2 +1,0 @@
-Exercise 12:
-Given an unsigned integer, outputs the integer in decimal and binary notation, then also as a sum of powers of 2.

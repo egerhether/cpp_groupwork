@@ -1,2 +1,0 @@
-Exercise 10:
-Fills and outputs a string containing all ascii letters.

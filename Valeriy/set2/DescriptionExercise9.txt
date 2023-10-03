@@ -1,2 +1,0 @@
-Exercise 9:
-Given a number, produces a multiplication table up to 10. 
