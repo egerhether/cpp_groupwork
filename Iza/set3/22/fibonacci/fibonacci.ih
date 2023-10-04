@@ -1,7 +1,3 @@
 #include "fibonacci.h"
 
-int const MAXFIB = 90;
-int const ENDFIB = MAXFIB + 1;
-size_t fibval[ENDFIB] = {};
-
 using namespace std;
