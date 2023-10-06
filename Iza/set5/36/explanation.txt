@@ -1,0 +1,50 @@
+----------------------------------------------------------------------------
+  definition:         rewrite: 
+----------------------------------------------------------------------------
+  int x[8];           x[4]            
+
+pointer notation:  *(x + 4)
+       semantics:  x + 4 points to the location of the 4th int beyond x.
+                   That element is reached using the dereference operator (*)
+
+----------------------------------------------------------------------------
+  int x[8];           x[2] = x[3];
+
+pointer notation: *(x+2)=*(x+3);
+       semantics: x+2 points to the location of the 2nd int element beyond x
+                  and x+3 does so to the 3rd int element beyond x. To update
+                  the value of x[2] to x[3] we need to use dereference 
+                  operator on both sides
+----------------------------------------------------------------------------
+  char *argv[8];      cout << argv[2];
+
+pointer notation: cout << *(argv+2);
+       semantics: argv+2 points to the location of the 2nd char element beyond
+                  argv and to use get its value we use the dereference
+                  operator
+----------------------------------------------------------------------------
+  int x[8];           &x[10] - &x[3];
+ 
+pointer notation:
+       semantics:
+----------------------------------------------------------------------------
+  main's argv;        argv++[0];
+
+pointer notation:
+       semantics:
+----------------------------------------------------------------------------
+  main's argv;        argv[0]++;
+
+pointer notation:
+       semantics:
+----------------------------------------------------------------------------
+  main's argv;        ++argv[0];
+
+pointer notation:
+       semantics:
+----------------------------------------------------------------------------
+  main's argv;        ++argv[0][2];
+
+pointer notation:
+       semantics:
+----------------------------------------------------------------------------
