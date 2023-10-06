@@ -1,0 +1,2 @@
+create and implement a class CopyCat performing deep copies of environ, argv,
+or environ-like variables
