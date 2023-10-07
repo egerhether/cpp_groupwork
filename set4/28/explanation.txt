@@ -1,0 +1,1 @@
+design a small class line returning substrings from lines
