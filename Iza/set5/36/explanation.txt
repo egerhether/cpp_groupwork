@@ -25,26 +25,40 @@ pointer notation: cout << *(argv+2);
 ----------------------------------------------------------------------------
   int x[8];           &x[10] - &x[3];
  
-pointer notation:
-       semantics:
+pointer notation: &*(x+10)-&*(x+3);
+       semantics: x+10 points to the hypothetical (though non existent) 
+                  position of the 10th integer in x, when using the & we get
+                  the adress in memory of that variable. Subtracting the 
+                  address of the 3rd int in x (pointed to by x+3) we get 
+                  the number of integers stored between these indices, i.e. 7.
 ----------------------------------------------------------------------------
   main's argv;        argv++[0];
 
-pointer notation:
-       semantics:
+pointer notation: *argv++
+       semantics: since we are using post-incrementation here, we want it 
+                  to not be taken into account in the current expression.
+                  hence argv++ points to argv[1] but since it is
+                  post-incremented it will do so from next expression onwards
+                  giving us an equivalent result to argv++[0].
 ----------------------------------------------------------------------------
   main's argv;        argv[0]++;
 
-pointer notation:
-       semantics:
+pointer notation: (*argv)++ 
+       semantics: argv points to the first entry of argv and post-incrementing
+                  it makes it so the next call of *argv (or equivalently 
+                  argv[0]) will omit the first character.
 ----------------------------------------------------------------------------
   main's argv;        ++argv[0];
 
-pointer notation:
-       semantics:
+pointer notation: ++*argv 
+       semantics: *argv points to the first element of argv and by using
+                  pre-incrementation we want the incrementation to be taken
+                  into account in the expression itself.
 ----------------------------------------------------------------------------
   main's argv;        ++argv[0][2];
 
-pointer notation:
-       semantics:
+pointer notation: ++*(*(argv)+2)
+       semantics: argv points to the first element of argv and *argv+2 points
+       to the third element of first element of argv. Then we pre-increment
+       the whole expression to update the value within the expression itself.
 ----------------------------------------------------------------------------
