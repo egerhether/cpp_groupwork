@@ -8,3 +8,5 @@ CharCount/CharCount.cc
 CharCount/info.cc
 CharCount/count.cc
 CharCount/locate.cc
+CharCount/append.cc
+CharCount/insert.cc

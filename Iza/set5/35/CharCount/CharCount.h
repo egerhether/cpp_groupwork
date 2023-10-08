@@ -33,6 +33,8 @@ class CharCount
 
     private:
         Action locate(char c, size_t &idx);
+        void append(Char *&newPtr, size_t index);
+        void insert(Char *&newPtr, size_t index);
         
 };
 
