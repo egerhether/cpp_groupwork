@@ -1,0 +1,10 @@
+explanation.txt
+main.ih
+showChar.cc
+main.cc
+CharCount/CharCount.h
+CharCount/CharCount.ih 
+CharCount/CharCount.cc
+CharCount/info.cc
+CharCount/count.cc
+CharCount/locate.cc
