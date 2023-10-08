@@ -1,0 +1,16 @@
+Check for flaw in the design of Phonebook programme.
+
+When compiling main.cc before the finder.cc in the main repository no phone
+numbers will be retrieved as the static Finder s_finder object member of the
+PhoneBook class is not initiased. Hence the get function that calls it to
+obtain phone numbers doesn't perform its function and returns a null pointer.
+
+This can be fixed by not initialising s_finder on compilation and rather
+including a getFinder() function in the phonebook class which will initialise
+s_finder only after the user wants to access the data.
+
+static Finder &getFinder()
+{
+    static Finder s_finder;         // initialized on first access
+    return s_finder;
+} 
