@@ -8,20 +8,19 @@ int main()
     {
         double number;
         Parser::Return result = parser.number(&number);
-
         switch (result)
         {
-        case Parser::NUMBER:
-            cout << "Parsed number: " << number << '\n';
-            break;
-        case Parser::NO_NUMBER:
-            cout << "There is no number on this line." << '\n';
-            break;
-        case Parser::EOLN:
-            cout << "End of line reached." << '\n';
-            break;
-        default:
-            break;
+            case Parser::NUMBER:
+                cout << "Parsed number: " << number << '\n';
+                break;
+            case Parser::NO_NUMBER:
+                cout << "There is no number on this line." << '\n';
+                break;
+            case Parser::EOLN:
+                cout << "End of line reached." << '\n';
+                break;
+            default:
+                break;
         }
 
         bool isIntegral = parser.isIntegral();

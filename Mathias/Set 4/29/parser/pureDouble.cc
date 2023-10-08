@@ -3,6 +3,7 @@
 
 bool Parser::pureDouble(double *dest, string const &str)
 {
+    // ML: You do not need a try catch block here (why?)
     try
     {
         size_t pos = 0;
@@ -26,8 +27,9 @@ bool Parser::pureDouble(double *dest, string const &str)
 
         return true;    // successful conversion
     }
+    // ML: exception const &
     catch (const exception &)
-    {                   // conversion has failed,  catch it
+    {                   // sonversion failed
         return false;  
     }
 }

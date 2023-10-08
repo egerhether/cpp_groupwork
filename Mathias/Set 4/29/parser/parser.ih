@@ -1,4 +1,4 @@
-#include "line.hh"
+#include "../line/line.hh"
 #include "parser.hh"
 
 using namespace std;

@@ -4,30 +4,29 @@
 #include <iostream>
 #include <string>
 
-#include "line.ih"
+#include "../line/line.hh"
 
 class Parser
 {
-Line d_line;
-bool d_integral;
-public: 
-    enum Return
-{
-    NUMBER,
-    NO_NUMBER,
-    EOLN
-};
+    public:
+         enum Return
+        {
+            NUMBER,
+            NO_NUMBER,
+            EOLN
+        };
+        Parser();
+        bool reset();
+        Return number(double *dest);
+        string next();
+        bool isIntegral() const;
 
-private:
-Return convert(double *dest, string const &str);
-bool pureDouble(double *dest, string const &str);
+    Line d_line;
+    bool d_integral;
+    private:
+    Return convert(double *dest, string const &str);
+    bool pureDouble(double *dest, string const &str);
 
-public:
-    Parser();
-    bool reset();
-    Return number(double *dest);
-    string next();
-    bool isIntegral() const;
 };
 
 #endif
