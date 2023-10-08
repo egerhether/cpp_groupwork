@@ -7,14 +7,11 @@ Parser::Return Parser::number(double *dest)
     if (substring.empty())
         return EOLN;
 
-    try
-    {
-        if (dest)
-            *dest = std::stod(substring);
-        return NUMBER;
-    }
-    catch (const invalid_argument&)
-    {
-        return NO_NUMBER;
-    }
+    double tempValue;
+    Parser::Return result = convert(&tempValue, substring);
+
+    if (result == NUMBER && dest)
+        *dest = tempValue;
+
+    return result;
 }
