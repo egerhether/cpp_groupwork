@@ -1,0 +1,2 @@
+Design the class Parser. It's a class using the facilities of the class Line 
+(cf. the previous exercise), and having a Line d_line data member.

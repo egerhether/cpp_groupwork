@@ -1,0 +1,15 @@
+explain.txt
+main.ih
+main.cc
+line/line.hh
+line/line.ih
+line/getLine.cc
+line/next.cc
+parser/parser.hh
+parser/parser.ih
+parser/parser.cc
+parser/convert.cc
+parser/isIntegral.cc
+parser/next.cc
+parser/pureDouble.cc
+parser/reset.cc
