@@ -1,0 +1,15 @@
+1. What differences exist between pointer variables and arrays?
+
+Pointers store addresses to specific locations in the memory, but arrays just store a collection of different elements.
+The array size is also determined during declaration, but pointers can point to different places dynamically. Pointers also need to be dereferenced before the "content" can be accessed.
+Arrays can decay into pointers to their first elements when passed into functions for example.
+
+2. What differences exist between pointer variables and reference variables?
+
+Reference variables are aliases to existing objects and cannot be reseated.
+Pointers use the * operator to access the value they point to, while references use the . or -> operator to access the value directly.
+
+3. Drawing sent as a separate email.
+
+4. What is pointer arithmetic?
+Pointer arithmetic basically involves doing arithmetic on pointers, like addition or substraction. For example, if you have an int *ptr to an array, incrementing by one moves the pointer to the next element. This allows us to traverse arrays and other data structures.
