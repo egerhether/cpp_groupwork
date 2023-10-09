@@ -1,0 +1,3 @@
+#include "copyCat.hh"
+
+extern char** environ;

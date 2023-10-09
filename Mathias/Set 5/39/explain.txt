@@ -1,0 +1,11 @@
+Command for creating the object file of data.cc:
+g++ -c data.cc -std=c++23 -Wall -Werror -o data.o
+
+# command for libdata.a from data.o
+ar rcs libdata.a data.o
+
+# compile main to object file
+g++ -c main.cc -std=c++23 -Wall -Werror -o main.o
+
+# link the library
+g++ -o main main.o -L. -ldata -std=c++23
