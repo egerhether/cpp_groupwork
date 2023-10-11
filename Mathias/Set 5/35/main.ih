@@ -1,0 +1,10 @@
+#ifndef MAIN_IH
+#define MAIN_IH
+
+#include <iostream>
+#include "CharCount/CharCount.hh"
+using namespace std;
+
+void showChar(char ch);
+
+#endif
