@@ -1,6 +1,4 @@
 #include "CopyCat.ih"
-#include "CopyCat.ih"
-#include <cstring> // For strdup
 
 CopyCat::CopyCat(int argc, char **argv)
 {

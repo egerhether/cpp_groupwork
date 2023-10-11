@@ -1,11 +1,26 @@
-Command for creating the object file of data.cc:
-g++ -c data.cc -std=c++23 -Wall -Werror -o data.o
+Command for creating the object files:
 
-# command for libdata.a from data.o
-ar rcs libdata.a data.o
+g++ -std=c++2b -Wall -Werror -c data/read.cc -o read.o
+g++ -std=c++2b -Wall -Werror -c data/display.cc -o display.o
 
-# compile main to object file
-g++ -c main.cc -std=c++23 -Wall -Werror -o main.o
+For the library:
+ar rcs libdata.a read.o display.o
 
-# link the library
-g++ -o main main.o -L. -ldata -std=c++23
+Main.cc object file:
+g++ -std=c++2b -Wall -Werror -c main.cc -o main.o
+
+Link with the library
+g++ -std=c++2b -Wall -Werror -o data_library main.o -L. -ldata
+
+Test
+./data_library < data.in
+
+The output:
+Object 1: value is: 1
+Object 2: value is: 2
+Object 3: value is: 3
+Object 4: value is: 4
+
+Therefore, everything worked as expected.
+
+Once we remove the d_text comments, we do not get this output anymore.

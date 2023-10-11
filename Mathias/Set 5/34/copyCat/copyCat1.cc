@@ -3,13 +3,13 @@
 // Default constructor implementation
 CopyCat::CopyCat()
 {
-    char** copy = environ;      // Copy the pointer
-    d_size = countElements(copy); // Count the elements
-    d_data = new char*[d_size]; // Allocate memory
+    char** copy = environ;      // copy pointer
+    d_size = countElements(copy); // count the elements
+    d_data = new char*[d_size]; // allocate memory
 
     for (size_t ix = 0; ix != d_size; ++ix) 
     {
-        // Use strdup to duplicate the string
+        // duplicate the string
         d_data[ix] = strdup(copy[ix]);
     }
 }

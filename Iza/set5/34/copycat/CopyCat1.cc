@@ -8,4 +8,3 @@ CopyCat::CopyCat()
 
     for (size_t idx = 0; idx != d_size; ++idx)
         copyString(d_data[idx],environCopy[idx]);
-}
