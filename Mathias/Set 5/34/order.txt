@@ -1,0 +1,10 @@
+explanation.txt
+main.ih
+main.cc
+copycat/copyCat.hh
+copycat/copyCat.ih 
+copycat/copyCat1.cc
+copycat/copyCat2.cc
+copycat/copyCat3.cc
+copycat/getData.cc
+copycat/countElements.cc

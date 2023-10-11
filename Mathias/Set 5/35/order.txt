@@ -1,0 +1,13 @@
+explanation.txt
+explanation.txt
+main.ih
+showChar.cc
+main.cc
+CharCount/CharCount.hh
+CharCount/CharCount.ih 
+CharCount/CharCount.cc
+CharCount/info.cc
+CharCount/count.cc
+CharCount/locate.cc
+CharCount/append.cc
+CharCount/insert.cc

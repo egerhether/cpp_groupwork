@@ -1,0 +1,1 @@
+A programme that counts characters and prints it out.

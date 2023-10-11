@@ -1,5 +1,5 @@
 #include "CharCount.ih"
-#include "CharCount.hh"
+
 void CharCount::count(std::istream &stream)
 {
     char c;
