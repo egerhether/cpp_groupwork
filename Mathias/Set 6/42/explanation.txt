@@ -1,0 +1,33 @@
+"new and "delete" are used for memory allocation and deallocation in c++. This makes
+memory allocation quite a bit simpler than in C. 
+
+Different forms of new and delete:
+
+1. new and delete, for single object allocation:
+
+int *p = new int; //allocate
+delete p; //deallocate
+
+2. We can also allocate memory and initialize it at the same time:
+int* singleInteger = new int(42);
+
+3. We can also use new and delete for an array of objects:
+
+int size = 5;
+int* intArray = new int[size]; //allocate
+delete[] intArray;  //deallocate
+
+4. We can, also, initalize the array right inside new:
+int *intArray = new int[5]{1, 2, 3, 4, 5};
+
+5. new and delete, for a class object:
+
+int *p = new Person;
+delete p;
+
+6. It is possible to create a nullpointer for with new for
+scenarios where one might prefer to check for a failed allocation by examining the 
+return value of new, rather than dealing with exceptions.
+
+int *singleInteger = new (std::nothrow) int;
+
