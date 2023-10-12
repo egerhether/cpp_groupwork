@@ -1,0 +1,35 @@
+Provide examples of variants of new and delete
+
+1. Single object memory allocation
+
+int *ptr = new int;
+delete ptr;
+
+2. Array memory allocation
+
+int *arr = new int[5];
+delete[] arr;
+
+3. Placement new and destructor
+
+char size[sizeof(MyClass)];
+MyClass *obj = new (size) MyClass;
+obj->~MyClass();
+
+
+4. Nothrow for dealing with allocation failure in the code
+
+int *myInt = new (std::nothrow) int;
+
+5. make_unique for automatic memory management and no need for later delete
+
+auto ptr = std::make_unique<MyClass>(arg1, arg2);
+
+6. custom allocator
+
+std::allocator<int> alloc;
+int *ptr = alloc.allocate(5);
+alloc.deallocate(ptr, 5);
+
+
+
