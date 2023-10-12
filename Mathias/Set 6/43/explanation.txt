@@ -1,0 +1,16 @@
+The reason for having two versions of at is function overloading. This provides different behavior
+based on whether you are working with a constant instance of the Strings class or a non-constant instance.
+
+Non-constant instance of the Strings class uses the non-constant at function. If a constant object is created, the constant function
+is used.
+
+With the current main, the non-constant version is used as during declaring the String object, there is no const keyword.
+
+Example for when another const version of at is used:
+
+int main()
+{
+    const Strings strings{ cin }; // declare 'strings' as a constant instance
+    for (size_t idx = 0, end = strings.size(); idx != end; ++idx)
+        cout << "line " << idx + 1 << ": " << strings.at(idx) << '\n';
+}
