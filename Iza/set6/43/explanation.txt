@@ -1,0 +1,18 @@
+Fix a problem in the strings class
+
+1. Why are there two "at" functions declared?
+
+One of them deals with constant and non-constant elements separately,
+the constant one gives access to but doesn't allow for modifications
+while the non-constant one allows for modifications.
+
+2. Which one is used in the abovementioned main function? 
+
+The const one as we are only couting the string.
+
+3. Provide example showing a situation where the other at member is used. 
+
+Strings obj;
+obj.add("string");
+
+obj.at(0) = "modified string"; 
