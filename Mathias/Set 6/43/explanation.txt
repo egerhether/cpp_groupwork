@@ -1,3 +1,5 @@
+The main defect in the strings class is that memory is never deallocated. We added a deconstructor.
+
 The reason for having two versions of at is function overloading. This provides different behavior
 based on whether you are working with a constant instance of the Strings class or a non-constant instance.
 
