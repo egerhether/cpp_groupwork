@@ -1,5 +1,5 @@
 #include "main.ih"
-#include "strings.h"
+
 int main()
 {
     Strings strings{ cin };

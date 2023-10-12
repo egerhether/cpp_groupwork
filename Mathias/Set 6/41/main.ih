@@ -1,0 +1,9 @@
+#include <iostream>
+#include <string>
+#include "CharCount/CharCount.hh"
+
+void usage(std::string const &progname);
+
+void showChar(Char ch);
+
+using namespace std;
