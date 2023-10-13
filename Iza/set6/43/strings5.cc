@@ -1,6 +1,6 @@
 #include "strings.ih"
 
-strings::~Strings()
+Strings::~Strings()
 {
     delete[] str;
     size = 0;
