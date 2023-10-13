@@ -16,3 +16,6 @@ Strings obj;
 obj.add("string");
 
 obj.at(0) = "modified string"; 
+
+DEFECT: the defect in the provided code is that the defined class strings 
+doesn't contain a destructor.
