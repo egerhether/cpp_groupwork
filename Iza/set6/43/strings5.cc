@@ -2,6 +2,6 @@
 
 Strings::~Strings()
 {
-    delete[] str;
-    size = 0;
+    delete[] d_str;
+    d_size = 0;
 }
