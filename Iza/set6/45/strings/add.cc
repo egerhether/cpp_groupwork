@@ -7,7 +7,6 @@ void Strings::add(string const &next)
         d_capacity = 2 * d_capacity;
         reserve(d_capacity);    
     }      
-
-    d_str[d_size] = string(next);                 // store next
+    new (&d_str[d_size]) string(next);      // store next
     ++d_size;                              // update  d_size
 }

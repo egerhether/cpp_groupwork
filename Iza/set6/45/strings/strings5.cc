@@ -2,9 +2,10 @@
 
 Strings::~Strings()
 {
-    for (size_t idx = d_capacity; idx--; )
+    for (size_t idx = d_size; idx--; )
         d_str[idx].~string();
-    delete[] d_str;
+
+    operator delete (d_str);
     d_size = 0;
     d_capacity = 0;
 }
