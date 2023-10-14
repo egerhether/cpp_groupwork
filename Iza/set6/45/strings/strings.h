@@ -22,6 +22,9 @@ class Strings
         Strings(std::istream &in);
         ~Strings();
 
+        void resize(size_t size, std::string str);
+        void resize(size_t size);
+
         void swap(Strings &other);              
 
         size_t size() const;
