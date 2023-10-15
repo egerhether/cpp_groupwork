@@ -1,3 +1,7 @@
+Creating a library file of the class under two different conditions and linking 
+it. In the second condition, the definition of d_text in data/data.h and its use
+in data/read.cc uncommented.
+
 Command for creating the object files:
 
 g++ -std=c++2b -Wall -Werror -c data/read.cc -o read.o
