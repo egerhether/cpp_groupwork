@@ -1,3 +1,0 @@
-/Users/mathiasrandruut/Documents/EGERT/cpp_groupwork/Mathias/Set 6/48/CMakeFiles/48.dir
-/Users/mathiasrandruut/Documents/EGERT/cpp_groupwork/Mathias/Set 6/48/CMakeFiles/edit_cache.dir
-/Users/mathiasrandruut/Documents/EGERT/cpp_groupwork/Mathias/Set 6/48/CMakeFiles/rebuild_cache.dir

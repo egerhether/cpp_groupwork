@@ -1,1 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/c++  -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/48.dir/main.cc.o CMakeFiles/48.dir/dh/alice.cc.o CMakeFiles/48.dir/dh/bob.cc.o CMakeFiles/48.dir/dh/aliceConst.cc.o CMakeFiles/48.dir/dh/bobConst.cc.o CMakeFiles/48.dir/dh/dh.cc.o -o 48 

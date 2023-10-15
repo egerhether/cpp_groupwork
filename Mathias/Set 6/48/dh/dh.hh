@@ -1,3 +1,8 @@
+#ifndef DH_H
+#define DH_H
+
+#include <string>
+
 enum Type
 {
     ALICE,
@@ -6,13 +11,13 @@ enum Type
 
 class DH
 {
-public:
-    // we use constructor delegation
-    DH(std::string const &socket, std::string const &bobPubFname);
-    DH(std::string const &bobPubFname, std::string const &AlicePubFname);
-    DH(Type type, std::string const &first, std::string const &second);
+    public:
+        DH(Type type, const std::string& parameter1, const std::string& parameter2);
 
-private:
-    void alice(std::string const &socket, std::string const &bobPubFname);
-    void bob(std::string const &bobPubFname, std::string const &alicePubFname);
+    private:
+        void alice(const std::string& socketName, const std::string& bobPublicFileName);
+        void bob(const std::string& bobPublicFileName, const std::string& alicePublicFileName);
 };
+
+#endif
+

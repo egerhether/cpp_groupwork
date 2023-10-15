@@ -1,2 +1,2 @@
 This is an example of constructor delegation. The main constructor delegates the 
-work to the constructor that matches the type.
+work to the member functions that match the type.
