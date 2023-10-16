@@ -3,6 +3,7 @@
         80
     ],
     "files.associations": {
-        "new": "cpp"
+        "new": "cpp",
+        "iostream": "cpp"
     }
 }
