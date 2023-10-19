@@ -1,0 +1,1 @@
+Format a double using a single cout statement

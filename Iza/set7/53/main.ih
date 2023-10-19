@@ -1,6 +1,0 @@
-#include <iostream>
-#include <iomanip>
-
-using namespace std;
-
-ostream &format(ostream &stream, double value);
