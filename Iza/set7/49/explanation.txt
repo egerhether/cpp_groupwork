@@ -18,4 +18,5 @@ sys     0m0,005s
 
 the second version is significantly faster as the checking operation of whether
 the ostream out is in failed state or not is quicker than the program trying 
-and failing to perform the stream.
+and failing to perform the stream. This is due the first program repeatedly 
+calls the insertion operator.
