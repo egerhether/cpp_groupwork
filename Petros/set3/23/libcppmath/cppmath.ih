@@ -1,5 +1,0 @@
-#include "cppmath.hh"
-#include <string>
-#include <cmath>
-
-using namespace std;

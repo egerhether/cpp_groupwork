@@ -1,5 +1,0 @@
-#include "sum.hh"
-#include <string>
-#include <iostream>
-using namespace std;
-
