@@ -1,0 +1,12 @@
+We can conclude from the test that using the out.good() if statement is really useful in
+reducing the total run time.
+
+Version without the out.good() check:
+./a.out 100000000
+Execution time: 3.74387 seconds
+
+Version with the out.good() check:
+./a.out 100000000                    
+Execution time: 0.465495 seconds
+
+The if statement prevents unnecessary output operations when out's failbit is set.
