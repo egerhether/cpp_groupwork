@@ -1,0 +1,21 @@
+Preventing output from being written
+
+For the first version of the program (without the if-statement) running 
+
+>time ./tmp/bin/binary 100000000
+
+gives
+
+real    0m8,115s
+user    0m8,077s
+sys     0m0,015s
+
+and for the other version 
+
+real    0m0,112s
+user    0m0,102s
+sys     0m0,005s
+
+the second version is significantly faster as the checking operation of whether
+the ostream out is in failed state or not is quicker than the program trying 
+and failing to perform the stream.
