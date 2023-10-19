@@ -1,0 +1,13 @@
+Ofstream and fstream deal differently with the data.
+Namely, ofstream automatically creates the file if it does not exist yet.
+This is why "hello world" is written there without any problems. However, 
+when using fstream and if "/tmp/out2" doesn't exist, it also does not create the
+file by itself. And if there is no file, "hello world" never gets written.
+
+We can use the open function with appropriate flags. The out creates the file if it does not already exist.
+The other option is to use ofstream instead of fstream, which is usually more appropriate if we 
+want to write data to files.
+
+fstream out2;
+out2.open("/tmp/out2", ios::out);
+hello(out2);
