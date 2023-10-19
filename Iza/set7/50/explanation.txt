@@ -1,0 +1,10 @@
+Fix fstream object to create a file
+
+fstream out2{ "/tmp/out2" };
+hello(out2);
+
+doesn't create the file out2 as fstream object by itself is neither an input
+nor an output stream hence inserting "hello world\n" in the hello function
+doesn't output or input the NTBS, it just inserts the NTBS into the stream.
+
+To fix it we can make the following ammend to the code.
