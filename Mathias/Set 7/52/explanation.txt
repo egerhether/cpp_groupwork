@@ -1,16 +1,2 @@
-istringstreams allow us to read data from a string as it was coming from an input source. 
-In order for the program to function correctly, we need to create a separate istringstream for
-each of the arguments. Otherwise, it continues from where it left off during the first argument.
-
-At the moment, the same istringstream is used for both. Therefore,
-we should create a separate one just for the second argument:
-
-             // first argument istringstream
-istringstream istr1(argv[1]);
-    size_t no1 = 0;
-    istr >> no1;
-
-            // second argument istringstream
-istringstream istr2(argv[2]);
-    size_t no2 = 0;
-    istr >> no2;
+A manipulator helps with defining custom behaviour during input and
+output operations. In this case, we display the current date and time.
