@@ -8,26 +8,31 @@ Different forms of new and delete:
 int *p = new int; //allocate
 delete p; //deallocate
 
-2. We can also allocate memory and initialize it at the same time:
-int* singleInteger = new int(42);
-
-3. We can also use new and delete for an array of objects:
+2. We can also use new and delete for an array of objects:
 
 int size = 5;
 int* intArray = new int[size]; //allocate
 delete[] intArray;  //deallocate
 
-4. We can, also, initalize the array right inside new:
-int *intArray = new int[5]{1, 2, 3, 4, 5};
+3. Placement of new and destructor
 
-5. new and delete, for a class object:
+char size[sizeof(MyClass)];
+MyClass *obj = new (size) MyClass;
+obj->~MyClass();
 
-int *p = new Person;
-delete p;
 
-6. It is possible to create a nullpointer for with new for
-scenarios where one might prefer to check for a failed allocation by examining the 
-return value of new, rather than dealing with exceptions.
+4. Nothrow for dealing with allocation failures inside the code
 
-int *singleInteger = new (std::nothrow) int;
+int *myInt = new (std::nothrow) int;
 
+
+5. A custom allocator
+
+std::allocator<int> alloc;
+int *ptr = alloc.allocate(5);
+alloc.deallocate(ptr, 5);
+
+
+7. make_unique for automatic memory management and no need for later delete
+
+auto ptr = std::make_unique<MyClass>(arg1, arg2);
