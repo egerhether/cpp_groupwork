@@ -1,0 +1,7 @@
+#include "../26/person/person.h"
+#include <iostream>
+
+void read(Person people[], std::size_t arraySize, std::istream &read);
+void write(Person people[], std::size_t arraySize, std::ostream &out);
+
+using namespace std;

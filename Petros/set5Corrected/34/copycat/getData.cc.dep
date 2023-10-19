@@ -1,0 +1,4 @@
+copycat/getData.o: copycat/getData.cc copycat/CopyCat.ih \
+ copycat/CopyCat.h
+copycat/CopyCat.ih:
+copycat/CopyCat.h:

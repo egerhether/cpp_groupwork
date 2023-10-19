@@ -1,0 +1,30 @@
+Creating a library file of the class under two different conditions and linking 
+it. In the second condition, the definition of d_text in data/data.h and its use
+in data/read.cc uncommented.
+
+Command for creating the object files:
+
+g++ -std=c++2b -Wall -Werror -c data/read.cc -o read.o
+g++ -std=c++2b -Wall -Werror -c data/display.cc -o display.o
+
+For the library:
+ar rcs libdata.a read.o display.o
+
+Main.cc object file:
+g++ -std=c++2b -Wall -Werror -c main.cc -o main.o
+
+Link with the library
+g++ -std=c++2b -Wall -Werror -o data_library main.o -L. -ldata
+
+Test
+./data_library < data.in
+
+The output:
+Object 1: value is: 1
+Object 2: value is: 2
+Object 3: value is: 3
+Object 4: value is: 4
+
+Therefore, everything worked as expected.
+
+Once we remove the d_text comments, we do not get this output anymore.

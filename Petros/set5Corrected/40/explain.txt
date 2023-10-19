@@ -1,0 +1,17 @@
+Why does the program break after introducing d_text?
+
+Introducing d_text to the class while keeping the old main.o file
+directly affects the layout of the memory which in turn affects Application Binary Interface. 
+
+Why doesn't the program break anymore when using a pointer to the implementation?
+
+When you use a Pimpl design, change to the implementation of the class does not affect the ABI.
+This is because the public interface class (e.g., Data) only contains a pointer
+to the implementation (Pimpl), and the implementation details are hidden within
+a separate class. Adding or modifying members in the class, it doesn't change the
+layout of the public interface class. This means the program will run as expected.
+
+If I have a correctly designed class but need to add data members while not using the pimpl approach,
+it is useful to make the data members private in the class which helps with ABI stability.
+I would make sure that no one from outside the class can directly change or access
+the data. Instead, I would provide special methods (getters and setters) to manage how the data is used.

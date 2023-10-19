@@ -1,0 +1,3 @@
+the strings class given to us is inneficient, as every time we want to
+enlarge the number of strings we can store, we have to reinitialize copy
+and delete the string objects themselves. We fix this using double pointers.

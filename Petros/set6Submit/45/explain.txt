@@ -1,0 +1,3 @@
+As before we work to improve the way strings dynamically allocates memory.
+This time though, instead of using double pointers we do this using the
+placement new operator.

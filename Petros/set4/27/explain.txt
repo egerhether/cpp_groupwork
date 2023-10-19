@@ -1,0 +1,11 @@
+Implement a program in which
+
+x - an array of 5 Person objects is defined (note: changing the size must 
+only require you to change the number of elements of the array). Also, this 
+array may not be a global array;
+
+x - a function is called reading all of the Persons' data from the standard 
+input stream, showing a '? ' prompt just before reading the next line.
+
+x - a function is called writing the data of all the Persons' data to the 
+standard output stream.

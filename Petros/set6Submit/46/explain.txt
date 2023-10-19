@@ -1,0 +1,2 @@
+This is an implementation of a symbol table using the binary search algorythm
+for locating symbols and a double pointer dynamic memory allocation scheme.

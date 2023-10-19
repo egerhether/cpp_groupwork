@@ -1,0 +1,6 @@
+symbol/compare.o: symbol/compare.cc symbol/symbol.ih symbol/symbol.h \
+ symbol/../value/value.h symbol/../value/../enum/enum.h
+symbol/symbol.ih:
+symbol/symbol.h:
+symbol/../value/value.h:
+symbol/../value/../enum/enum.h:

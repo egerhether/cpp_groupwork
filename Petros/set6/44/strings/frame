@@ -1,0 +1,5 @@
+#include "strings.ih"
+
+Strings::
+{
+}

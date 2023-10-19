@@ -1,0 +1,4 @@
+source file: 151 b
+executable file: 13624 b
+object file: 1296 b
+iostream: 3074 b

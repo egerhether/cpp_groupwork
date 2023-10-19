@@ -1,0 +1,19 @@
+The time it too for the program to run without the if statement was:
+.222 seconds.
+
+The time it took the program to run with the if statement was:
+.018 seconds
+
+This is as, even though both implementations check for the fail flag
+(when if (out.good()) we check explicity else the ostream object checks
+implicitly), the implementation using the if statement never calls the <<
+operator and thus avoids all it's overhead, while the implementation
+without does and therefore is quite a bit slower.
+
+As this is mostly used for debugging I wouldn't worry too much about the
+performance drop as the extra time it takes, even for 1 million iterations,
+is neglidgible. On the other hand, if i'm  planning to release a program
+that requires many ostream insertions which it has to check for, or i choose
+to keep all the debugging lines for future checks, I would
+definitely implement the if statement as to make the user experience 
+faster.

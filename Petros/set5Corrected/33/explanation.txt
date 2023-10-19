@@ -1,0 +1,22 @@
+1. differences between pointer variable and arrays
+
+Pointer variables' memory is allocated at runtime in contrast to arrays which 
+are static and their memory is allocated at compile time except for arrays in 
+functions. Pointer variables store addresses of a single variable while arrays 
+stores multiple of the same data type. 
+
+2. differences between pointer variables and reference variables
+
+Pointers with the same name can be re-assigned to point to another value, 
+while references can't be changed to reference another value after 
+initializing. To access value pointed to by a pointer one needs to dereference
+it first while it's correct to just use the name of the reference variable. 
+The pointer can be nullptr while there cannot be a nullptr/0 reference and while
+we can perform arithmetic operations on pointers we can't do it on references.
+
+4. what is meant by pointer arithmetic
+
+Poiter arithmetic is a set of arithmetic operations we can perform on pointer,
+they include incrementing/decrementing (++, --), 
+subtracting two pointers pointing to the same type from each other and adding
+and subtracting an integer from the pointer.

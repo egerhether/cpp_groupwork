@@ -1,0 +1,8 @@
+symtab/find.o: symtab/find.cc symtab/symtab.ih symtab/symtab.h \
+ symtab/../symbol/symbol.h symtab/../symbol/../value/value.h \
+ symtab/../symbol/../value/../enum/enum.h
+symtab/symtab.ih:
+symtab/symtab.h:
+symtab/../symbol/symbol.h:
+symtab/../symbol/../value/value.h:
+symtab/../symbol/../value/../enum/enum.h:

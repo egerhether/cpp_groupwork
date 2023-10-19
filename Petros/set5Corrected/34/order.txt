@@ -1,0 +1,8 @@
+explanation.txt
+copycat/CopyCat.h
+copycat/CompyCat.ih 
+copycat/CopyCat1.cc
+copycat/CopyCat2.cc
+copycat/CopyCat3.cc
+copycat/elements.cc
+copycat/copyString.cc

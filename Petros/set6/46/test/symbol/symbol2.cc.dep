@@ -1,0 +1,6 @@
+symbol/symbol2.o: symbol/symbol2.cc symbol/symbol.ih symbol/symbol.h \
+ symbol/../value/value.h symbol/../value/../enum/enum.h
+symbol/symbol.ih:
+symbol/symbol.h:
+symbol/../value/value.h:
+symbol/../value/../enum/enum.h:

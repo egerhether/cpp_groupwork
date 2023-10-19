@@ -1,0 +1,7 @@
+In this exercise modify CharCount so that
+
+Starting from an initial capacity 8 for storing Char objects the capacity is 
+doubled whenever the current capacity is exhausted.
+
+Use an array of pointers to members that is used to immediately determine which 
+function to call once its required action has been determined. 
