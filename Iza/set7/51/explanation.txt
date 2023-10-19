@@ -1,0 +1,21 @@
+Learn to understand behaviours of istringstream
+
+The outputs are not 
+extracted first number: 1
+extracted second number: 2
+
+but 
+extracted first number: 1
+extracted second number: 0
+
+as we re-initialise the istr object but we do not clear the stream meaning that
+the extraction to no2 is empty. It is empty because argv[1] and argv[2]
+contains no spaces so 2nd position is empty. Thus we only cout the no2 which was
+initialised to 0.
+
+
+to fix it we can do
+cout << "extracted first number: " << no1 << '\n';
+
+istr.clear();
+istr.str(argv[2]);
