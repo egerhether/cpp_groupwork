@@ -2,7 +2,8 @@
 #include <iostream>
 #include <chrono>
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
                             // get the number of iterations from command line
     int niterations = std::stoi(argv[1]);
                             // initialize the ostream 
@@ -24,6 +25,4 @@ int main(int argc, char *argv[]) {
     std::chrono::duration<double> elapsed = end - start;
 
     std::cout << "Execution time: " << elapsed.count() << " seconds\n";
-
-    return 0;
 }

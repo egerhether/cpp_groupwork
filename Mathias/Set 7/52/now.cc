@@ -5,8 +5,10 @@
 using namespace std;
 
                     // manipulator for the date and time
-struct manipulator {
-    friend ostream& operator<<(ostream& os, const manipulator& manip) {
+struct manipulator
+{
+    friend ostream& operator<<(ostream& os, const manipulator& manip)
+    {
         time_t now = time(nullptr);
         tm time = *localtime(&now);
         return os << put_time(&time, "%c");
@@ -16,7 +18,7 @@ struct manipulator {
                     // create an object of the manipulator
 manipulator now;
 
-int main() {
+int main()
+{
     cout << now << '\n';
-    return 0;
 }
