@@ -30,7 +30,7 @@ class Strings
 
         POD release();
 
-        size_t capacity();
+        size_t const capacity();
 
         std::string const &at(size_t idx) const;
         std::string &at(size_t idx);
@@ -72,7 +72,7 @@ inline std::string &Strings::at(size_t idx)
     return *safeAt(idx);
 }
 
-inline size_t Strings::capacity()
+inline size_t const Strings::capacity()
 {
     return d_capacity;
 }
