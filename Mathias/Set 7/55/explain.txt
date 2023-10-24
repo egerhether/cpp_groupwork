@@ -1,0 +1,1 @@
+This program reads a process accounting file and outputs the names of processes which didn't exit correctly.
