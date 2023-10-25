@@ -13,26 +13,24 @@ class Symtab
         Symtab();
         ~Symtab();
 
-    Symbol const &find(std::string const &identifier)    ;
-    size_t idxfind(std::string const &identifier)        ;
-    size_t size()                                   const;
-    
-    Symbol const &at(size_t index)                  const;
-    Symbol &at(size_t index);
+        Symbol const &find(std::string const &identifier)    ;
+        size_t idxfind(std::string const &identifier)        ;
+        size_t size()                                   const;
+        
+        Symbol const &at(size_t index)                  const;
+        Symbol &at(size_t index);
 
     private:
 
-    Symbol &safeAt(size_t index)    const;
-    
-    // for allocation
-    
-    void enlarge(size_t newCap);    // enlarges the d_symbols array to newCap
-    void destroy();                 // deletes allocated memory
+        Symbol &safeAt(size_t index)    const;
+        
+        // for allocation
+        
+        void enlarge(size_t newCap);    // enlarges the d_symbols array to newCap
+        void destroy();                 // deletes allocated memory
 
-    // for find
-
-    void insert(std::string const &nextSym, size_t idx);
-    void append(std::string const &nextSym);
+        // for find
+        void insert(std::string const &nextSym, int idx);
 };
 
 // INLINE FUNCTIONS

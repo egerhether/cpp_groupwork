@@ -4,7 +4,7 @@ size_t Symtab::idxfind(string const &identifier)
 {
     if (d_size == 0)
     {
-        append(identifier);
+        insert(identifier, d_size);
         return 0;
     }
 
@@ -41,7 +41,7 @@ size_t Symtab::idxfind(string const &identifier)
     }
 
     if (begin == d_size)        // begin == end == d_size
-        append(identifier);
+        insert(identifier, d_size);
     
     else
         insert(identifier, begin);

@@ -1,0 +1,14 @@
+The difference between the two objects created is that one is an ofstream 
+object while the other one is an fstream object.
+
+fstream out1 {"/tmp/out1"} constructs an ofstream object associated with a
+filebuf object as its internal stream buffer that performs in/out operations,
+with a default second arguement: ios::out. This second arguement opens the file
+for writing, allowing us to write in the file.
+
+fstream out2 {"/tmp/out2"} constructs the fstream object associated with a
+newly constructed filebuf object, after which filebuf::open is called. At this
+point we have not specified any flags describing the requested input/output mode
+for the file so out fstream object out, can't really do anything. To fix this
+issue we can construct our object as such:
+std::fstream out2 {"/tmp/out2", ios::out};

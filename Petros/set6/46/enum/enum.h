@@ -4,12 +4,12 @@
 
 enum Token
 {
-QUIT,
-CHAR,
-INT,
-DOUBLE,
-IDENT,
-ERROR,
+    QUIT,
+    CHAR,
+    INT,
+    DOUBLE,
+    IDENT,
+    ERROR,
 };
         
 #endif

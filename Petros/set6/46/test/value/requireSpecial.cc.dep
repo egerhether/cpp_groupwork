@@ -1,5 +1,0 @@
-value/requireSpecial.o: value/requireSpecial.cc value/value.ih \
- value/value.h value/../enum/enum.h
-value/value.ih:
-value/value.h:
-value/../enum/enum.h:

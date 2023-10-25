@@ -1,6 +1,0 @@
-symbol/symbol1.o: symbol/symbol1.cc symbol/symbol.ih symbol/symbol.h \
- symbol/../value/value.h symbol/../value/../enum/enum.h
-symbol/symbol.ih:
-symbol/symbol.h:
-symbol/../value/value.h:
-symbol/../value/../enum/enum.h:

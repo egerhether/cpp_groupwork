@@ -34,7 +34,6 @@ class Value
         Token token()                       const;
 
         void requireSpecial(Token token);
-    private:
 };
 
 // INLINE FUNCTIONS 
@@ -43,14 +42,7 @@ class Value
 // intValue()
 inline int Value::intValue() const
 {
-
     return d_value.u_int;
-}
-
-inline void Value::intValue(int value)
-{
-    d_type = INT;
-    d_value.u_int = value;
 }
 
 //doubleValue()
@@ -59,22 +51,10 @@ inline double Value::doubleValue() const
     return d_value.u_double;
 }
 
-inline void Value::doubleValue(double value)
-{
-    d_type = DOUBLE;
-    d_value.u_double = value;
-}
-
 //charValue()
 inline char Value::charValue() const
 {
     return d_value.u_char;
-}
-
-inline void Value::charValue(char value)
-{
-    d_type = CHAR;
-    d_value.u_char = value;
 }
 
 //token

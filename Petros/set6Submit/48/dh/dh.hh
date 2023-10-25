@@ -12,7 +12,7 @@ enum Type
 class DH
 {
     public:
-	void chooseAndCall(Type type, const std::string& first, const std::string& second);
+	    void chooseAndCall(Type type, const std::string& first, const std::string& second);
         DH(Type type, const std::string& parameter1, const std::string& parameter2);
 
     private:

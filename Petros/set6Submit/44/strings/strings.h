@@ -45,6 +45,7 @@ class Strings
     private:
         void fill(char *ntbs[]);                    // fill prepared d_str
         void destroy();                 
+        std::string **rawPointers(size_t nr);
 
         std::string &safeAt(size_t idx) const;      // private backdoor
 
@@ -79,3 +80,5 @@ inline size_t Strings::capacity()
         
 #endif
 
+
+// ES: NAE "Hint: define a support function rawPointers that is provided with the number of pointers to strings to allocate and that returns a pointer to that number of pointers to strings."

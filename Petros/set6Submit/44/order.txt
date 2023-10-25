@@ -10,6 +10,7 @@ strings/fill.cc
 strings/count.cc
 strings/add.cc
 strings/reserve.cc
+strings/rawPointers.cc
 strings/destroy.cc
 strings/safeat.cc
 strings/swap.cc

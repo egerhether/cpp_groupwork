@@ -1,0 +1,1 @@
+implement a class performing the vernam encryption and decryption

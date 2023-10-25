@@ -2,7 +2,6 @@
 
 Value::Value(int index, char indentifier)
 :
+    d_value(index),
     d_type(Token::IDENT)
-{
-    d_value.u_int = index;
-}
+{}

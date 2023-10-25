@@ -1,38 +1,35 @@
-"new and "delete" are used for memory allocation and deallocation in c++. This makes
-memory allocation quite a bit simpler than in C. 
+Provide examples of variants of new and delete
 
-Different forms of new and delete:
+1. Single object memory allocation
 
-1. new and delete, for single object allocation:
+int *ptr = new int;
+delete ptr;
 
-int *p = new int; //allocate
-delete p; //deallocate
+2. Array memory allocation
 
-2. We can also use new and delete for an array of objects:
+int *arr = new int[5];
+delete[] arr;
 
-int size = 5;
-int* intArray = new int[size]; //allocate
-delete[] intArray;  //deallocate
-
-3. Placement of new and destructor
+3. Placement new and destructor
 
 char size[sizeof(MyClass)];
 MyClass *obj = new (size) MyClass;
 obj->~MyClass();
 
 
-4. Nothrow for dealing with allocation failures inside the code
+4. Nothrow for dealing with allocation failure in the code
 
 int *myInt = new (std::nothrow) int;
 
+5. make_unique for automatic memory management and no need for later delete
 
-5. A custom allocator
+auto ptr = std::make_unique<MyClass>(arg1, arg2);
+
+6. custom allocator
 
 std::allocator<int> alloc;
 int *ptr = alloc.allocate(5);
 alloc.deallocate(ptr, 5);
 
 
-7. make_unique for automatic memory management and no need for later delete
 
-auto ptr = std::make_unique<MyClass>(arg1, arg2);

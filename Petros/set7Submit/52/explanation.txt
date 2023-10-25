@@ -1,0 +1,2 @@
+A manipulator helps with defining custom behaviour during input and
+output operations. In this case, we display the current date and time.

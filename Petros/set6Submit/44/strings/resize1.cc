@@ -1,5 +1,6 @@
 #include "strings.ih"
 
+// ES: MR
 void Strings::resize(size_t size, string str)
 {
     if (int(size) < 0)

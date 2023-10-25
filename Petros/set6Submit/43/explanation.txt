@@ -13,14 +13,15 @@ modifications of the string at the requested index.
 
 2. Which one is used in the abovementioned main function? 
 
-The const one as we are only couting the string.
+The non-const one as we are using the return value as an r-value. No const
+keyword is specified.
 
 3. Provide example showing a situation where the other at member is used. 
 
-Strings obj;
-obj.add("string");
-
-obj.at(0) = "modified string"; 
+    Strings obj;
+    obj.add("string");
+    const string myStr = obj.at(0);
 
 DEFECT: the defect in the provided code is that the defined class strings 
-doesn't contain a destructor.
+doesn't have a destructor while it reserves memory, meaning that it has a data 
+leak whenever a Strings obj is created as its data is never deleted.

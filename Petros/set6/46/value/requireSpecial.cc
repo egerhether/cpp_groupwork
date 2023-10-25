@@ -2,10 +2,24 @@
 
 void Value::requireSpecial(Token token)
 {
-    if (token != QUIT && token != ERROR && token != IDENT)
+    switch token
     {
-        cout << "Internal error: forcing token " << token << 
-                " to value QUIT\n";
-        d_type = QUIT;
+        case QUIT:
+        break;
+        
+        case ERROR:
+        break;
+        
+        case IDENT:
+        break;
+        
+        default:
+            cout << "Internal error: forcing token " << token << 
+                    " to value QUIT\n";
+            d_type = QUIT;
+        break;
     }
 }
+
+
+// ES: Use switch

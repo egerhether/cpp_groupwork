@@ -2,7 +2,6 @@
 
 Value::Value()
 :
+    d_value(0),
     d_type(Token::INT)
-{
-    d_value.u_int = 0;
-}
+{}

@@ -1,0 +1,10 @@
+#include "lock.h"
+#include <filesystem>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/file.h>   // for flock
+
+#include <iostream> // for testing 
+
+using namespace std;
+
