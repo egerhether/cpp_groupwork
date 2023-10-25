@@ -1,10 +1,7 @@
 #include "main.ih"
 
-int main(int argc, char **argv)
-try
+int main()
 {
-}
-catch (...)
-{
-    return 1;
+    Numbers numbers(10);
+    numbers.write(cout);
 }
