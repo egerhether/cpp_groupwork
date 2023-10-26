@@ -1,0 +1,15 @@
+#include <iostream>
+#include <string>
+#include "strings/strings.h"
+
+extern char **environ;
+
+namespace Icmake
+{
+    extern char version[];
+    extern char years[];
+    extern char author[];
+};
+
+
+using namespace std;
