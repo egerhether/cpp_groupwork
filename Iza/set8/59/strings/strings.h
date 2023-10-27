@@ -7,8 +7,8 @@ class Strings
 {
     size_t d_size;
     std::string *d_str;
-    bool  d_copy;
     size_t d_iter;
+    bool d_copy;
 
     public:
         struct POD
@@ -43,7 +43,11 @@ class Strings
 
 
         std::string &safeAt(size_t idx) const;      // private backdoor
-        std::string *enlarge();
+
+        std::string *(*enlarge())(std::string *, size_t);
+
+        static std::string *enlargeByCopy(std::string *str, size_t size);
+        static std::string *enlargeByMove(std::string *str, size_t size);
 
         static size_t count(char *environLike[]);   // # elements in env.like
 };
