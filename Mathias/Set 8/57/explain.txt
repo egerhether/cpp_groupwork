@@ -1,0 +1,2 @@
+The strings class that is converted to a full-proof value class that offers copy and move construction and also assignment.
+

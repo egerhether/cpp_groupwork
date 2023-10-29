@@ -1,0 +1,4 @@
+An implementation of the class named "Numbers" capable of storing a fixed number of integers,
+with an option to initialize or instead leave them uninitialized. It also supports inspecting
+and modifying stored ints using the "at" function and provides the ability to write values to an ostream
+with the "write" functio. It can also report the number of stored integers with the "length" function. 
