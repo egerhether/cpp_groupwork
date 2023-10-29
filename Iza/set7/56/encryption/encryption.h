@@ -5,11 +5,11 @@
 
 class Encryption
 {
-    std::string d_pwd; 
-    char d_mode;
-    std::string d_in;
-    std::string d_out;
-    std::string d_progname;
+    std::string d_pwd;  // string containing the password 
+    char d_mode;        // 'e' or 'd' to make decision whether to en- or decrypt
+    std::string d_in;   // filepath to input file (if given)
+    std::string d_out;  // filepath to output file (if given)
+    std::string d_progname; // needed for usage
 
     public:
 
@@ -17,14 +17,13 @@ class Encryption
                    int (*usage)(std::string const &progname));
         ~Encryption();
 
-        int process();
+        int process(); // function performing the encryption/decryption in full
 
     private:
 
         std::string passwd();
-
-        void (*mode())(std::istream &, std::ostream &, 
-                                                    size_t, std::string);
+                                            // choice of mode (enc vs dec)
+        void (*mode())(std::istream &, std::ostream &, size_t, std::string);
 
         static void encrypt(std::istream &in, std::ostream &out, 
                                         size_t length, std::string pass);
@@ -40,9 +39,12 @@ class Encryption
         static std::string convert(std::string in, char (*operation)(char,char), 
                                             size_t length, std::string pass);
 
-        int (*usage)(const std::string &progname);
+        int (*usage)(const std::string &progname);  // pointer to usage func
 
-        std::string extend(std::string str);
+                                             // function which extends the 
+                                             // password if it is between 5 and
+                                             // 10 characters
+        std::string extend(std::string str);   
         
 
 

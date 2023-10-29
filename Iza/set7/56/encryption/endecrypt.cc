@@ -5,7 +5,7 @@ void Encryption::endecrypt(istream &in, ostream &out,
 {
     char buffer[length];
     streamsize len = length;
-    while (in.get(buffer, len))
+    while (in.get(buffer, len))   // convert consecutive segments of pass length
         out << convert(buffer, operation, length, pass);
     
 }
