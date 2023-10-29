@@ -1,0 +1,6 @@
+The class demo has different constructors and assignment operators.
+There's also a factory function that creates Demo objects and prints messages.
+The main function shows how these constructors and operators work, including copy and move operation.
+There is also a demonstartion of how copy elision happens during a function call: fun(factory());
+In this case, the compiler recognizes that the temporary Demo object that factory() creates can be directly constructed
+as the argument for the fun.
