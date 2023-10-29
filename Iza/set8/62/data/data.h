@@ -16,7 +16,7 @@ union Data
         double (*u_double)[10];
         std::string u_word;
         size_t u_value;
-        Field u_field;
+        Field u_field; // active field for the Data object
 
     public:
         Data(double (*array)[10]);
@@ -43,19 +43,19 @@ union Data
         void destroyArray();
         void destroyText();
         void destroyNum();
-
-        static void (Data::*s_destroy[])();
+                                // array with addresses of destroy functions
+        static void (Data::*s_destroy[])(); 
 
         void copyArray(Data const &obj);
         void copyText(Data const &obj);
         void copyValue(Data const &obj);
-
-        static void (Data::*s_copy[])(Data const &);
+                                // array with addresses of copy functions
+        static void (Data::*s_copy[])(Data const &); 
 
         void moveArray(Data &&obj);
         void moveText(Data &&obj);
         void moveNum(Data &&obj);
-
+                                // array with addresses of move functions
         static void (Data::*s_move[])(Data &&);
 
         void swapArrayArray(Data &obj1, Data &obj2);
@@ -64,10 +64,13 @@ union Data
         void swapTextText(Data &obj1, Data &obj2);
         void swapTextNum(Data &obj1, Data &obj2);
         void swapNumNum(Data &obj1, Data &obj2);
-
+                                // array with addresses of swap functions
         static void (Data::*s_swap[3][3])(Data &, Data &);
 
 };
+
+                            // using inline definitions as most of those 
+                            // functions are one liners
 
 inline double (*Data::array() const)[10]
 {
@@ -100,7 +103,7 @@ inline void (Data::*Data::s_swap[3][3])(Data &, Data &) = {
     {&Data::swapArrayArray, &Data::swapArrayText, &Data::swapArrayNum},
     {&Data::swapArrayText, &Data::swapTextText, &Data::swapTextNum},
     {&Data::swapArrayNum, &Data::swapTextNum, &Data::swapNumNum}
-};
+};                      // swaping a with b is the same as swaping b with a
 
 inline void Data::destroy(Field type)
 {
