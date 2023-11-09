@@ -1,10 +1,57 @@
-0
-0
-0
-0
-0
-0
-0
-0
-0
-0
+==5069== Memcheck, a memory error detector
+==5069== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==5069== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==5069== Command: ./tmp/bin/binary
+==5069== Parent PID: 3569
+==5069== 
+==5069== Conditional jump or move depends on uninitialised value(s)
+==5069==    at 0x49A745E: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==5069==    by 0x49B58E9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==5069==    by 0x4015DD: Numbers::write(std::ostream&) (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==    by 0x40110E: main (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==  Uninitialised value was created by a heap allocation
+==5069==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5069==    by 0x40143B: Numbers::Numbers(unsigned long) (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==    by 0x401101: main (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069== 
+==5069== Use of uninitialised value of size 8
+==5069==    at 0x49A733B: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==5069==    by 0x49A7488: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==5069==    by 0x49B58E9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==5069==    by 0x4015DD: Numbers::write(std::ostream&) (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==    by 0x40110E: main (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==  Uninitialised value was created by a heap allocation
+==5069==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5069==    by 0x40143B: Numbers::Numbers(unsigned long) (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==    by 0x401101: main (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069== 
+==5069== Conditional jump or move depends on uninitialised value(s)
+==5069==    at 0x49A734D: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==5069==    by 0x49A7488: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==5069==    by 0x49B58E9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==5069==    by 0x4015DD: Numbers::write(std::ostream&) (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==    by 0x40110E: main (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==  Uninitialised value was created by a heap allocation
+==5069==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5069==    by 0x40143B: Numbers::Numbers(unsigned long) (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==    by 0x401101: main (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069== 
+==5069== Conditional jump or move depends on uninitialised value(s)
+==5069==    at 0x49A74BE: std::ostreambuf_iterator<char, std::char_traits<char> > std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char> > >::_M_insert_int<long>(std::ostreambuf_iterator<char, std::char_traits<char> >, std::ios_base&, char, long) const (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==5069==    by 0x49B58E9: std::ostream& std::ostream::_M_insert<long>(long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==5069==    by 0x4015DD: Numbers::write(std::ostream&) (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==    by 0x40110E: main (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==  Uninitialised value was created by a heap allocation
+==5069==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5069==    by 0x40143B: Numbers::Numbers(unsigned long) (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069==    by 0x401101: main (in /home/hether/cs_courses/cpp_groupwork/Iza/set8/58/tmp/bin/binary)
+==5069== 
+==5069== 
+==5069== HEAP SUMMARY:
+==5069==     in use at exit: 0 bytes in 0 blocks
+==5069==   total heap usage: 3 allocs, 3 frees, 74,792 bytes allocated
+==5069== 
+==5069== All heap blocks were freed -- no leaks are possible
+==5069== 
+==5069== For lists of detected and suppressed errors, rerun with: -s
+==5069== ERROR SUMMARY: 40 errors from 4 contexts (suppressed: 0 from 0)
