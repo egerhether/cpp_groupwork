@@ -1,0 +1,77 @@
+#ifndef INCLUDED_STRINGS_
+#define INCLUDED_STRINGS_
+
+#include <iosfwd>
+
+class Strings
+{
+    size_t d_size;
+    std::string *d_str;
+    size_t d_iter;
+    bool d_copy;
+
+    public:
+        struct POD
+        {
+            size_t      size;
+            std::string *str;
+        };
+
+        Strings();
+        Strings(int argc, char *argv[]);
+        Strings(char *environLike[]);
+        Strings(std::istream &in);
+        Strings(size_t nIterate, bool copy = true);
+
+        ~Strings();
+
+        void swap(Strings &other);              
+
+        size_t size() const;
+        std::string const *data() const;
+        POD release();
+
+        std::string const &at(size_t idx) const;
+        std::string &at(size_t idx);
+
+        void add(std::string const &next);          // for adding an element
+
+        void iterate(char **environLike);
+
+    private:
+        void fill(char *ntbs[]);                
+
+
+        std::string &safeAt(size_t idx) const;      
+
+        std::string* (*enlarge(bool useMove))(std::string*, size_t);
+
+        static std::string *enlargeByCopy(std::string *str, size_t size);
+        static std::string *enlargeByMove(std::string *str, size_t size);
+
+        static size_t count(char *environLike[]);   // # elements in env.like
+};
+
+inline size_t Strings::size() const                 // potentially dangerous practice:
+{                                                   // inline accessors
+    return d_size;
+}
+
+inline std::string const *Strings::data() const
+{
+    return d_str;
+}
+
+inline std::string const &Strings::at(size_t idx) const
+{
+    return safeAt(idx);
+}
+
+inline std::string &Strings::at(size_t idx)
+{
+    return safeAt(idx);
+}
+
+        
+#endif
+

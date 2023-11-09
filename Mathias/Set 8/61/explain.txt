@@ -1,0 +1,19 @@
+We fill out the table based on the characteristics of the constructors and assignment operators defined for a class 
+and also whether the compiler generates default implementations for them.
+
+-----------------------------------------------------------
+                        constructors        assignment ops.
+                     ------------------     ---------------  
+define:              default copy move        copy    move   
+-----------------------------------------------------------
+no constructor:         +     +    +           +        +                                        
+default cons:           -     +    +           +        +
+copy cons (CC):         -     -    CC          +        C=
+move cons (MC):         -     -    -           -        M=
+other cons:             -     +    +           +        +
+                        
+no assignment:          +     +    +           +        +         
+copy assignmnt (C=):    +     +    -           -        C=
+move assignmnt (M=):    +     -    -           -        -
+other assignmnt:        +     +    +           +        +                                      
+-------------------------------------------------------------
