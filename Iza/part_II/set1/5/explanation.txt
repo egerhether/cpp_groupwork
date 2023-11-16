@@ -1,0 +1,24 @@
+explain how functions in namespaces work
+
+1. This happens because of the Koenig lookup, which is a method implemented 
+within C++ that if no namespace is specified when calling a function, the 
+arguments of the function are used to determine the function's namespace. So 
+since symb is of type First::Enum within the first namespace then First::fun is
+called. In order to call Second::fun we need this code instead 
+int main()
+{
+    First::Enum symb;
+    Second::fun(symb);
+}
+
+2. The insertion operator << is overloaded differently for various data types 
+that can be inserted into the stream. With the use of namespaces in the 
+header files defining a new class (such as string) together with a overloaded
+operator for objects of that class it suggests through the Koenig lookup the
+correct operator for the insertion.
+
+3. if we define a fun(First::Enum symbol) function outside of any namespace
+we are declaring a global function, thus the program will always have access to
+it. This causes a compilation error as now there's two identical overloads, one
+provided by the Koening lookup and the other by the existence of a global 
+function.
