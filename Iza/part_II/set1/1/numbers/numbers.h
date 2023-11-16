@@ -30,6 +30,7 @@ class Numbers
         friend std::ostream &operator<<(std::ostream &stream, 
                                                 Numbers const &obj);
 
+                                        // comparison operators
         friend bool operator==(Numbers const &lhs, Numbers const &rhs);
         friend bool operator==(Numbers &&tmp, Numbers const &rhs);
 
