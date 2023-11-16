@@ -1,0 +1,1 @@
+expand numbers class to contain binary arithmetic operators
