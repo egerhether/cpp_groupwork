@@ -1,0 +1,20 @@
+1. the code in its initial state doesn't compile because the boolean conversion
+operator is explicit, so while the if statement calls it directly allowing for
+getting the truth value out of getline, our function doesn't do it directly.
+Thus due to the getPrompt function attempting to do implicit boolean conversion
+it tries to return an std::basic_istream object instead of bool which is 
+stated in the return type.
+
+
+2. bool promptGet(istream &in, string &str)
+{
+    cout << "Enter a line or ^D\n";
+    return bool(getline(in, str));
+};
+
+
+3. istream &promptGet(istream &in, string &str)
+{
+    cout << "Enter a line or ^D\n";
+    return getline(in, str);
+};
