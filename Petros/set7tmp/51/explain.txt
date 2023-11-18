@@ -1,0 +1,16 @@
+After we use the insertion operator, as we insert the entire strings contents
+the state of the istream object becomes EOF. When we thus change the string
+stored in the object and try to use the insertion operator again, nothing
+happens as this doesnt change istr's state.
+The change I made to fix this issue was the following:
+
+    cout << "extracted first number: " << no1 << '\n';
+   
+    // clear the status of istr.
+    istr.clear();
+    istr.str(argv[2]);
+    size_t no2 = 0;
+    istr >> no2;
+
+which sets the position of the object back to 0 so now the insertion happens as
+expected.

@@ -1,0 +1,12 @@
+#include <iostream>
+#include <string>
+#include "numbers/numbers.h"
+
+namespace Icmake
+{
+    extern char version[];
+    extern char years[];
+    extern char author[];
+};
+
+using namespace std;

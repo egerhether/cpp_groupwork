@@ -1,0 +1,13 @@
+This is a lock class that locks a file so that only one instance can access it
+at any given time. (given that our lock protocol is used)
+
+to make my library i used the command:
+
+$ ar crf 
+/home/petros/Documents/CPP_I/github/cpp_groupwork/Petros/lib/libpcutility.a 
+lock/destructor.o lock/lock1.o lock/lock2.o lock/lockpath.o 
+lock/lockpath1.o lock/open.o lock/valid.o
+
+after having already compiled all my .o files using my usual Makefile.
+
+where ../lib/ is a diffirent directory from where I write my code.

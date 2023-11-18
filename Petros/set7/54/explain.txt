@@ -1,0 +1,2 @@
+This is a lock class that locks a file so that only one instance can access it
+at any given time. (given that our lock protocol is used)

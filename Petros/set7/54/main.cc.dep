@@ -1,0 +1,3 @@
+main.o: main.cc main.ih lock/lock.h
+main.ih:
+lock/lock.h:

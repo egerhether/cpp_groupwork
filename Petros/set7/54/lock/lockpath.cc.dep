@@ -1,0 +1,3 @@
+lock/lockpath.o: lock/lockpath.cc lock/lock.ih lock/lock.h
+lock/lock.ih:
+lock/lock.h:

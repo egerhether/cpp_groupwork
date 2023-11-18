@@ -1,0 +1,14 @@
+add move functionality to the Strings class
+
+for copying the time for the output usually took:
+real    0m0,008s
+user    0m0,002s
+sys     0m0,006s
+
+while for moving the result was a big quicker:
+real    0m0,007s
+user    0m0,003s
+sys     0m0,004s
+
+not a big difference in time can probably be explained by the environ variable 
+only allowing for 84 iterations.

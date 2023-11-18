@@ -1,0 +1,8 @@
+#include <iostream>
+#include <iomanip>
+#include <time.h>
+
+std::ostream &now(std::ostream &stream);
+
+using namespace std;
+

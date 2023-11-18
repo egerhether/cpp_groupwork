@@ -1,0 +1,12 @@
+explanation.txt
+main.ih
+main.cc
+strings/strings.h
+strings/strings.ih
+strings/strings5.cc
+strings/strings6.cc
+strings/add.cc
+strings/iterate.cc
+strings/enlarge.cc
+strings/enlargeByCopy.cc
+strings/enlargeByMove.cc

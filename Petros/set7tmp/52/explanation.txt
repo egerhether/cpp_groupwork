@@ -1,0 +1,2 @@
+define a manipulator giving the output asctime-like without the trailing 
+newline.

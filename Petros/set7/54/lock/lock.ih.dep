@@ -1,0 +1,2 @@
+lock/lock.ih.gch: lock/lock.ih lock/lock.h
+lock/lock.h:

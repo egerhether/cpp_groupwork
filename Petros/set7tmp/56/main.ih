@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+#include "encryption/encryption.h"
+
+namespace Icmake
+{
+    extern char version[];
+    extern char years[];
+    extern char author[];
+};
+
+int usage(std::string const &progname);
+
+using namespace std;
