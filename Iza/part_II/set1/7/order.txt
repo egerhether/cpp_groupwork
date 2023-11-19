@@ -1,0 +1,11 @@
+explanation.txt
+stringsbasic/strings.h
+stringsbasic/strings.ih
+stringsbasic/strings2.cc
+stringsbasic/strings3.cc
+stringsbasic/func_call1.cc
+stringsbasic/func_call2.cc
+stringsbasic/insertInto.cc
+stringsbasic/operator_ins.cc
+stringsbasic/stdInsertion.cc
+stringsbasic/only2.cc

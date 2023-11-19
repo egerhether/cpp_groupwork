@@ -1,0 +1,1 @@
+modify strings class to support manipulators and separators within insertion
